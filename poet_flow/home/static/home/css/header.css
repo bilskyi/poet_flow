@@ -42,22 +42,20 @@ a {
 }
 
 .main-nav a {
-	color: #f5f5f5;
+	color: #f3f3f3;
 	font-size: 1.15em;
 }
 
 .main-nav a:hover {
-	color: #718daa;
+	color: #ffffff;
 }
 
-
-
 .header {
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	padding-top: .5em;
 	padding-bottom: .5em;
 	border: 1px solid #000000;
-	background: #0e0e0e;
+	background: #101010;
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
