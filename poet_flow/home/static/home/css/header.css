@@ -74,8 +74,9 @@ a {
     display: inline-block;
     border: 2px solid #ffffff; /* Add border around the links */
 	border-radius: 10%;
+	font-weight: 500;
     background-color: #f3f3f3; /* Change background color to black */
-    color: #101010; /* Change text color to white */
+    color: #000000; /* Change text color to white */
 	white-space: nowrap;
 }
 
