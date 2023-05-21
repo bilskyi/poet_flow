@@ -2,19 +2,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff5ea;
+    background-color: #f4f4f4;
     color: #333;
   }
-
+  
   h1 {
     margin: 0;
     font-size: 48px;
     letter-spacing: 2px;
     color: #fff;
   }
-
+  
   main {
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
@@ -22,9 +21,9 @@ body {
     justify-content: center;
     align-items: center;
   }
-
+  
   .poem {
-    width: 300px;
+    width: 45%;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -33,19 +32,20 @@ body {
     margin: 20px;
     transition: transform 0.3s ease-in-out;
   }
-
+  
   .poem:hover {
     transform: scale(1.05);
   }
-
+  
   .poem h2 {
     margin: 0;
     font-size: 24px;
     color: #333;
   }
-
+  
   .poem p {
     margin: 20px 0 0;
     font-size: 18px;
     color: #555;
   }
+  

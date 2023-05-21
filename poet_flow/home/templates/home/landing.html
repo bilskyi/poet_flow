@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Your Inspiration World</title>
+  <link rel="stylesheet" href="{% static 'home/css/landing.css' %}">
+</head>
+<body>
+    {% include 'home/header.html' %}
+  <div class="container">
+    <h1>Welcome to Your Inspiration World</h1>
+    <p>Discover and save creative ideas from around the web.</p>
+    <a href="/explore" class="btn">Get Inspired</a>
+  </div>
+  
+  <footer class="footer">
+    <p>&copy; 2023 Your Inspiration World. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+  </footer>
+</body>
+</html>
