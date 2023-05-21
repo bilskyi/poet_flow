@@ -26,18 +26,17 @@ a {
 
 
 .logo {
-	margin: 0;
-	font-size: 1.45em;
+	margin: 0 2%;
+	width: 8%;
 }
 
 .main-nav {
 	margin-top: 5px;
 	margin: 0 2%;
-
 }
 .logo a,
 .main-nav a {
-	padding: 10px 15px;
+	padding: 10px 25px;
 	display: block;
 }
 
@@ -59,6 +58,30 @@ a {
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+.reg-log {
+    display: flex;
+}
+
+.reg-log li {
+    margin-left: 20px;
+}
+
+.reg-log a {
+    padding: 5px 15px;
+	margin: 5px;
+    display: inline-block;
+    border: 2px solid #ffffff; /* Add border around the links */
+	border-radius: 10%;
+    background-color: #f3f3f3; /* Change background color to black */
+    color: #101010; /* Change text color to white */
+	white-space: nowrap;
+}
+
+.reg-log a:hover {
+    background-color: #ffffff; /* Change background color to white on hover */
+    color: #000000; /* Change text color to black on hover */
 }
 
 

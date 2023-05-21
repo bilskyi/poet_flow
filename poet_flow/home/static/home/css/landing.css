@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -27,7 +27,6 @@ svg {
 
 h1 {
   color: #333;
-  font-family: tahoma;
   font-size: 3rem;
   font-weight: 100;
   line-height: 1.5;
@@ -41,10 +40,11 @@ h1 {
 h1 span {
   font-size: 40px;
   margin-right: 50%;
+  font-weight: 500;
 }
 
 .message {
-  background-color: rgb(16, 16, 16);
+  background-color: #101010;
   color: #fdfdfd;
   display: block;
   font-weight: 900;
@@ -54,10 +54,6 @@ h1 span {
   top: 0.2rem;
   left: 270px;
   animation: openclose 8s ease-in-out infinite;
-}
-
-.word1, .word2, .word3 {
-  font-family: tahoma;
 }
 
 @keyframes openclose {

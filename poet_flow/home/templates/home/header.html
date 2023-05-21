@@ -1,11 +1,15 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'home/css/header.css' %}">
 <header class="header">
-    <h1 class="logo"><a href="{% url 'home' %}">PoetFlow</a></h1>
+  <a href="{% url 'home' %}"><img src="{% static 'home/img/logo.png' %}" alt="Logo" class="logo"></a>
   <ul class="main-nav">
       <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#">Poets</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Blog</a></li>
+      <div class="reg-log">
+        <li><a href="#" class="register">Sign Up</a></li>
+        <li><a href="#" class="login">Log In</a></li> 
+      </div>
   </ul>
 </header> 
