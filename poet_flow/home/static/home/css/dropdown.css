@@ -17,12 +17,10 @@
     transition: background-color 0.2s ease;
   }
 
-  .dropdown a {
+  .dropdown .dropdown-toggle,
+  .dropdown .dropdown-toggle:hover
+   {
     color: #121212;
-  }
-
-  .dropdown a:hover {
-    color: #181818;
   }
 
   .dropdown-menu {
@@ -51,6 +49,7 @@
     display: block;
     padding: 3px 20px;
     clear: both;
+    color: #fff;
     background: none;
     text-decoration: solid #fff underline;
     font-weight: 400;
