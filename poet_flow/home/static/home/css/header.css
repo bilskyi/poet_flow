@@ -39,6 +39,7 @@ a {
 	font-size: 1.15em;
 	text-decoration: none;
 	transition: transform 0.1s ease-in-out;
+	white-space: nowrap;
 }
 
 .main-nav a:hover {
