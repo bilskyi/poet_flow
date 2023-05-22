@@ -7,9 +7,13 @@
       <li><a href="#">Poets & Poems</a></li>
       <li><a href="#">Events</a></li>
       <li><a href="#">Blog</a></li>
+      {% if user.is_authenticated %}
       <div class="reg-log">
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Log In</a></li> 
+        <li><a href="{% url 'register' %}">Sign Up</a></li>
+        <li><a href="{% url 'login' %}">Log In</a></li> 
       </div>
+      {% else %}
+      <li><a href="#">{{user.username}}</a></li>
+      {% endif %}
   </ul>
 </header> 
