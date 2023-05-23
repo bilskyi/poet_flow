@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{% static 'home/css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/login-register.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/login-register-animation.css' %}">
 </head>
 <body>
+    <div class="scroll-bg"></div>
 
     <div class="main">
 
@@ -52,15 +54,10 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="{% static 'home/img/signup-image.jpg' %}" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">I am already member</a>
+                        <a href="{% url 'login' %}" class="signup-image-link">I am already member</a>
                     </div>
                 </div>
             </div>
         </section>
-
-        
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>

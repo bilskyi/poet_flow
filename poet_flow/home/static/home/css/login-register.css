@@ -186,8 +186,8 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     font-size: 36px; }
   
   .main {
-    background: #f8f8f8;
-    padding: 150px 0; }
+    background: none;
+    padding: 100px 0; }
   
   .clear {
     clear: both; }
