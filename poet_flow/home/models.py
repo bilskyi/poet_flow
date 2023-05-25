@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
     
 #     def __str__(self) -> str:
 #         return self.user.username
-    
+
 
 class Poem(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -24,6 +24,18 @@ class Poem(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+
+class Poet(models.Model):
+    name = models.CharField(max_length=255)
+    biography = models.TextField()
+    birth_date = models.DateField()
+    death_date = models.DateField(null=True, blank=True)
+
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Tags(models.Model):
