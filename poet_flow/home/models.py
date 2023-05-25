@@ -12,9 +12,21 @@ from django.contrib.auth.models import User
 #     def __str__(self) -> str:
 #         return self.user.username
 
+class Poet(models.Model):
+    name = models.CharField(max_length=255)
+    biography = models.TextField()
+    birth_date = models.DateField()
+    death_date = models.DateField(null=True, blank=True)
+    poems = models.ManyToManyField('Poem')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    def __str__(self) -> str:
+        return self.name
+
 
 class Poem(models.Model):
-    author = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_author = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+    poet_author = models.OneToOneField(Poet, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=50)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
@@ -26,18 +38,10 @@ class Poem(models.Model):
         return self.title
     
 
-class Poet(models.Model):
-    name = models.CharField(max_length=255)
-    biography = models.TextField()
-    birth_date = models.DateField()
-    death_date = models.DateField(null=True, blank=True)
-
-    slug = models.SlugField(max_length=255, unique=True, db_index=True)
-
-    def __str__(self) -> str:
-        return self.name
-
 
 class Tags(models.Model):
     tag = models.CharField(max_length=20)
     slug = models.SlugField(max_length=20, unique=True, db_index=True)
+
+    def __str__(self) -> str:
+        return self.tag
