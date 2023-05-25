@@ -26,7 +26,7 @@ class Poet(models.Model):
 
 class Poem(models.Model):
     user_author = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    poet_author = models.OneToOneField(Poet, on_delete=models.CASCADE, null=True, blank=True)
+    poet_author = models.ForeignKey(Poet, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=50)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
