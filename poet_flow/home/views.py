@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegister
+from .forms import UserRegister, AddPost
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
 
 
 def welcome(request):
@@ -39,3 +42,18 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('welcome')
+
+
+@login_required(login_url='/login/')
+def add_post(request):
+    if request.method == 'POST':
+        form = AddPost(request.POST)  # Bind the form data to the form instance
+        if form.is_valid():
+            poem = form.save(commit=False)
+            poem.user_author = request.user  # Set the user_author field to the current user
+            poem.save()
+            return redirect('home')  # Redirect to the desired page after successful submission
+    else:
+        form = AddPost()
+    
+    return render(request, 'home/add_poem.html', {'form': form})
