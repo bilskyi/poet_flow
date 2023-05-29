@@ -43,7 +43,7 @@ body {
     color: #333;
   }
   
-  .poem p {
+  .poem pre {
     margin: 20px 0 0;
     font-size: 18px;
     color: #555;
