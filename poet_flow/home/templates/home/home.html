@@ -11,7 +11,7 @@
   <main>
     {% for poem in poems %}
     <div class="poem">
-      <h2>{{poem.title}}</h2>
+      <h2><a href="{% url 'view_detail' poem.slug %}">{{poem.title}}</a></h2>
       <pre>{{poem.content |truncatewords_html:40}}</pre>
     </div>
     {% endfor %}

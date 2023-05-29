@@ -34,13 +34,14 @@ body {
   }
   
   .poem:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
   
-  .poem h2 {
+  .poem a {
     margin: 0;
     font-size: 24px;
     color: #333;
+    text-decoration: none;
   }
   
   .poem pre {
