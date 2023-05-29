@@ -63,7 +63,7 @@ a {
 }
 
 .reg-log li {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .reg-log a {
@@ -83,8 +83,24 @@ a {
     background-color: #ffffff; /* Change background color to white on hover */
 	box-shadow: rgba(255, 255, 255, 0.15) 0px 5px 15px 0px;
     color: #000000; /* Change text color to black on hover */
+	transform: scale(1.015);
 }
 
+.create {
+	background-color: #e4e4e4;
+	border-radius: 10%;
+    margin: 0 25px;
+}
+
+.create a {
+	color: #000000;
+}
+
+.create a:hover {
+	background-color: #e4e4e4;
+	color: #000000;
+	border-radius: 10%;
+}
 
 /* ================================= 
   Media Queries
