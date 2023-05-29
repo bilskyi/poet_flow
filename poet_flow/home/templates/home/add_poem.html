@@ -12,15 +12,15 @@
     <form method="post">
       {% csrf_token %}
       <div class="form-group">
-        <label for="name">Your Name</label>
+        <label for="title">Poem's Title:</label>
         {{form.title}}
       </div>
       <div class="form-group">
-        <label for="poem">Your Poem</label>
+        <label for="poem">Your Poem:</label>
         {{form.content}}
       </div>
       <div class="form-group">
-        <label for="email">Your Email</label>
+        <label for="tag">Tags:</label>
         {{form.tags}}
       </div>
       <button class="btn" type="submit">Submit</button>

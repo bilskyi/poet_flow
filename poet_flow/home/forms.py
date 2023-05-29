@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 
-from .models import Poem  
+from .models import Poem, Tags
 
 
 class UserRegisterForm(UserCreationForm):
@@ -29,4 +29,3 @@ class AddPost(forms.ModelForm):
     class Meta:
         model = Poem
         fields = [ 'title', 'content', 'tags']
-    
