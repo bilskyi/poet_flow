@@ -4,6 +4,7 @@
 <head>
   <title>Poetry Site</title>
   <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+  
 </head>
 <body>
   {% include 'home/header.html' %}
@@ -12,7 +13,13 @@
     {% for poem in poems %}
     <div class="poem">
       <h2><a href="{% url 'view_detail' poem.slug %}">{{poem.title}}</a></h2>
-      <pre>{{poem.content |truncatewords_html:40}}</pre>
+      <pre><a href="{% url 'view_detail' poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
+      {% if poem.user_author is not null %}
+      <p><a href="#">{{ poem.user_author }}</a></p>
+      {% else %}
+      <p><a href="#">{{ poem.poet_author }}</a></p>
+      {% endif %}
+      
     </div>
     {% endfor %}
 

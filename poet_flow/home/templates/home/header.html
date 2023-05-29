@@ -1,6 +1,10 @@
 {% load static %}
+<head>
+
 <link rel="stylesheet" href="{% static 'home/css/header.css' %}">
 <link rel="stylesheet" href="{% static 'home/css/dropdown.css' %}">
+<link rel="shortcut icon" href="{% static 'home/img/favicon.png' %}" type="image/x-icon">
+</head>
 <header class="header">
   <a href="{% url 'welcome' %}"><img src="{% static 'home/img/logo-white.png' %}" alt="Logo" class="logo"></a>
   <ul class="main-nav">

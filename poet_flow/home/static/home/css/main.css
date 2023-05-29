@@ -44,9 +44,16 @@ body {
     text-decoration: none;
   }
   
-  .poem pre {
+  .poem pre a {
     margin: 20px 0 0;
     font-size: 18px;
+    color: #555;
+  }
+  
+  .poem p a {
+    float: right;
+    margin: 30px 20px 0 ;
+    font-size: 1em;
     color: #555;
   }
   
