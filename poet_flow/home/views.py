@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegister, AddPost
+from .forms import UserRegisterForm, UserAuthenticationForm, AddPost
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
@@ -19,28 +19,28 @@ def home(request):
 
 def register_user(request):
     if request.method == 'POST':
-        form = UserRegister(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('home')
-    form = UserRegister()
+    form = UserRegisterForm()
     return render(request, 'home/register.html', {'form': form})
 
 
 def login_user(request):
-    form = AuthenticationForm()
+    form = UserAuthenticationForm()
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form = UserAuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('username'),
                             password=form.cleaned_data.get('password'))
             login(request, user)
             return redirect('home')
-    form = AuthenticationForm()
+    form = UserAuthenticationForm()
     return render(request, 'home/login.html', {'form': form})
 
-
+@login_required()
 def logout_user(request):
     logout(request)
     return redirect('welcome')
