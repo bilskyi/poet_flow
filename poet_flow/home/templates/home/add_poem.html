@@ -9,18 +9,19 @@
     
   <div class="container">
     <h2>Ad Poem Form</h2>
-    <form>
+    <form method="post">
+      {% csrf_token %}
       <div class="form-group">
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="text" id="email" name="email" placeholder="Enter your email" required>
+        {{form.title}}
       </div>
       <div class="form-group">
         <label for="poem">Your Poem</label>
-        <textarea id="poem" name="poem" placeholder="Write your ad poem here" required></textarea>
+        {{form.content}}
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        {{form.tags}}
       </div>
       <button class="btn" type="submit">Submit</button>
     </form>
