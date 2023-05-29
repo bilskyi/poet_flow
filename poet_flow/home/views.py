@@ -6,13 +6,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 
+from .models import Poem
 
 def welcome(request):
     return render(request, 'home/welcome.html')
 
 
 def home(request):
-    return render(request, 'home/home.html')
+    poems = Poem.objects.all()
+    return render(request, 'home/home.html', {'poems': poems})
 
 
 def register_user(request):

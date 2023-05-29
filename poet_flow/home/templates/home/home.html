@@ -9,35 +9,12 @@
   {% include 'home/header.html' %}
 
   <main>
+    {% for poem in poems %}
     <div class="poem">
-      <h2>Title of Poem 1</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortor.</p>
+      <h2>{{poem.title}}</h2>
+      <p>{{poem.content}}</p>
     </div>
-
-    <div class="poem">
-      <h2>Title of Poem 2</h2>
-      <p>Lorem ipsum dolor sit amet, consecddddddtetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortor.</p>
-    </div>
-    
-    <div class="poem">
-        <h2>Title of Poem 1</h2>
-        <p>Lorem ipsum dolLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortoror sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortor.</p>
-      </div>
-  
-      <div class="poem">
-        <h2>Title of Poem 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan est Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortoribendum neque, a consectetur odio metus eu tortorvitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortor.</p>
-      </div>
-
-      <div class="poem">
-        <h2>Title of Poem 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortor.</p>
-      </div>
-  
-      <div class="poem">
-        <h2>Title of Poem 2</h2>
-        <p>Lorem ipsumf;kadsjfla;sdkfasdfjkladsjfjsadjghsadjgsdjhfsjdahfjsadhfjd dolor sit amet, consectetur adipiscing elit. Nulla accumsan est vitae leo efficitur, ut fermentum mauris dignissim. Curabitur laoreet, odio a fermentum molestie, est augue bibendum neque, a consectetur odio metus eu tortor.</p>
-      </div>
+    {% endfor %}
 
     <!-- Add more poem divs as needed -->
 
