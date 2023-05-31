@@ -143,3 +143,10 @@ p {
   background-color: #0b0b0b;
 }
 
+@media (max-width: 769px) {
+
+  .container {
+    height: 40vh;
+  }
+
+}

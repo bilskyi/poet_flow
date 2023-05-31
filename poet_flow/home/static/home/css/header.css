@@ -111,24 +111,34 @@ header a {
 	border-radius: 10%;
 }
 
+
 /* ================================= 
   Media Queries
 ==================================== */
 
 
-
-
-@media (max-width: 769px) {
-
-	.header {
-		flex-direction: column;
-		align-items: center;
-    	.header {
-		width: 80%;
-		margin: 0 auto;
-		max-width: 1150px;
+@media screen and (max-width: 1200px) {
+	.main-nav a {
+	  padding: 20px; /* Adjust the button padding for smaller devices */
+	  font-size: 1.6em; /* Adjust the font size for smaller devices */
 	}
+  
+	
+	.reg-log a {
+	  padding: 15px; /* Adjust the button padding for smaller devices */
+	  font-size: 1.6em; /* Adjust the font size for smaller devices */
 	}
 
-}
+	.create a {
+			background-color: #e4e4e4;
+			border-radius: 10%;
+			padding: 20px;
+			margin: 0 10px;
+		}
 
+	.logo img {
+		width: 50px;
+		padding: 1.5em 0;
+		margin: 0 10px;
+	}
+  }
