@@ -52,9 +52,10 @@ def add_post(request):
         form = AddPost(request.POST)  # Bind the form data to the form instance
         if form.is_valid():
             poem = form.save(commit=False)
-            poem.user_author = request.user  # Set the user_author field to the current user
+            poem.user_author = request.user
             poem.save()
-            return redirect('home')  # Redirect to the desired page after successful submission
+            form.save_m2m()  # Save the many-to-many relationships after saving the poem instance
+            return redirect('home')
     else:
         form = AddPost()
     
