@@ -27,7 +27,7 @@ svg {
 
 h1 {
   color: #333;
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: 100;
   line-height: 1.5;
   text-transform: uppercase;
@@ -143,10 +143,11 @@ p {
   background-color: #0b0b0b;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1200px) {
 
   .container {
-    height: 40vh;
+    height: 80vh;
   }
 
+  
 }

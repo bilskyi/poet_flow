@@ -8,8 +8,8 @@
 <body>
   {% include 'home/header.html' %}
   <div class="container">
-    <h2>Ad Poem Form</h2>
-    <form method="post">
+    <h2>Add Poem Form</h2>
+    <form method="post" action="{% url 'add_post' %}">
       {% csrf_token %}
       <div class="form-group">
         <label for="title">Poem's Title:</label>
@@ -19,10 +19,16 @@
         <label for="poem">Your Poem:</label>
         {{form.content}}
       </div>
-      <div class="form-group">
-        <label for="tag">Tags:</label>
-        {{form.tags}}
+      <div class="hiddenCB">
+        <h3>Make your choice(s)</h3>
+        <div>
+          {% for tag in form.tags %}
+            <input type="checkbox" name="tags" id="{{ tag.id_for_label }}" value="{{ tag.data.value }}" {% if tag.is_checked %}checked{% endif %} />
+            <label for="{{ tag.id_for_label }}">{{ tag.choice_label }}</label>
+          {% endfor %}
+        </div>
       </div>
+      
       <button class="btn" type="submit">Submit</button>
     </form>
   </div>
