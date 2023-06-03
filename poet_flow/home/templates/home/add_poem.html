@@ -20,7 +20,8 @@
         {{form.content}}
       </div>
       <div class="hiddenCB">
-        <h3>Make your choice(s)</h3>
+        <h3>Tags:</h3>
+        <hr>
         <div>
           {% for tag in form.tags %}
             <input type="checkbox" name="tags" id="{{ tag.id_for_label }}" value="{{ tag.data.value }}" {% if tag.is_checked %}checked{% endif %} />
