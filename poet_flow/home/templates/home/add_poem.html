@@ -25,7 +25,7 @@
         <div>
           {% for tag in form.tags %}
             <input type="checkbox" name="tags" id="{{ tag.id_for_label }}" value="{{ tag.data.value }}" {% if tag.is_checked %}checked{% endif %} />
-            <label for="{{ tag.id_for_label }}">{{ tag.choice_label }}</label>
+            <label for="{{ tag.id_for_label }}">{{ tag.choice_label | lower }}</label>
           {% endfor %}
         </div>
       </div>

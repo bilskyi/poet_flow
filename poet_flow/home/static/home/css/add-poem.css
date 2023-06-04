@@ -112,10 +112,12 @@ textarea {
 
 .hiddenCB input[type="checkbox"]:checked+label {
   background: #73737366;
+  border-radius: 5px;
 }
 
 .hiddenCB input[type="checkbox"]:checked+label:hover{
   background: rgba(0, 128, 128, 0, .7);
+  border-radius: 5px;
 }
 
 .btn {
@@ -131,11 +133,11 @@ textarea {
   text-decoration: none;
   transition: background-color 0.3s;
   cursor: pointer;
-  margin-top: 4px;
+  margin-top: 32px;
 }
 
 .btn:hover {
-  background-color: #555;
+  background-color: #1e1e1e;
 }
 
 @media only screen and (max-width: 1200px) {
