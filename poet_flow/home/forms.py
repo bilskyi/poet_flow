@@ -26,7 +26,7 @@ class UserAuthenticationForm(AuthenticationForm):
 
 
 class AddPost(forms.ModelForm):
-    tags = forms.ModelMultipleChoiceField(queryset=Tags.objects.all(), widget=forms.CheckboxSelectMultiple)
+    tags = forms.ModelMultipleChoiceField(queryset=Tags.objects.all(), widget=forms.CheckboxSelectMultiple, required=False)
 
     class Meta:
         model = Poem

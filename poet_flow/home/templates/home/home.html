@@ -19,6 +19,9 @@
       {% else %}
       <p><a href="#">{{ poem.poet_author }}</a></p>
       {% endif %}
+      {% for tag in poem.tags.all %}
+      <p class="tag">{{tag}}</p>
+      {% endfor %}
       
     </div>
     {% endfor %}
