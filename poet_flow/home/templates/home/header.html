@@ -9,7 +9,7 @@
   <li class="logo"><a href="{% url 'welcome' %}"><img src="{% static 'home/img/logo-white.png' %}" alt="Logo"></a></li>
   <ul class="main-nav">
       <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="#">Poets & Poems</a></li>
+      <li><a href="{% url 'explore' %}">Poets & Poems</a></li>
       <li><a href="#">Events</a></li>
       <li class="create"><a href="{% url 'add_post' %}">CREATE</a></li>
       {% if user.is_authenticated %}
