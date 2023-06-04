@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello</h1>
-</body>
-</html>
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'explore/css/explore.css' %}">
+</header>
+<div class="responsive-container-block container">
+    <p class="text-blk team-head-text">
+      Our Team
+    </p>
+    {% for poet in poets %}
+    <div class="responsive-container-block">
+        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+          <div class="card">
+            <div class="team-image-wrapper">
+              <img class="team-member-image" src="{{ poet.photo.url }}">
+            </div>
+            <p class="text-blk name">
+              {{poet.name}}
+            </p>
+            <p class="text-blk position">
+              {{poet.birth_date}}
+            </p>
+            <p class="text-blk feature-text">
+              {{poet.biography}}
+            </p>
+          </div>
+        </div>
+    {% endfor %}  
+  </div>

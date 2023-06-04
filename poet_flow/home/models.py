@@ -14,6 +14,7 @@ class Profile(models.Model):
 
 class Poet(models.Model):
     name = models.CharField(max_length=255)
+    photo = models.ImageField(upload_to='photo/')
     biography = models.TextField()
     birth_date = models.DateField()
     death_date = models.DateField(null=True, blank=True)
