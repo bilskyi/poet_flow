@@ -1,6 +1,4 @@
-* {
-  font-family: Nunito, sans-serif;
-}
+
 
 .responsive-cell-block {
   min-height: 75px;
@@ -24,6 +22,7 @@
   margin-bottom: 0px;
   margin-left: auto;
   justify-content: space-evenly;
+  font-family: Nunito, sans-serif;
 }
 
 .team-head-text {
@@ -80,6 +79,12 @@
   margin-left: 0px;
   font-size: 18px;
   font-weight: 800;
+  text-decoration: none;
+}
+
+.name a {
+  text-decoration: none;
+  color: #141414;
 }
 
 .position {
