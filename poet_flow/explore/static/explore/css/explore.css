@@ -1,7 +1,9 @@
-
-
 .responsive-cell-block {
   min-height: 75px;
+}
+
+.responsive-cell-block a {
+  text-decoration: none;
 }
 
 .text-blk {
@@ -79,22 +81,24 @@
   margin-left: 0px;
   font-size: 18px;
   font-weight: 800;
-  text-decoration: none;
 }
 
 .name a {
-  text-decoration: none;
-  color: #141414;
+  color: #222;
 }
 
-.position {
+.date {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 10px;
   margin-left: 0px;
 }
 
-.feature-text {
+.date a {
+  color: #222;
+}
+
+.biography {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 20px;
@@ -103,19 +107,17 @@
   line-height: 30px;
 }
 
-.social-icons {
-  width: 70px;
-  display: flex;
-  justify-content: space-between;
+.biography a {
+  color: #555;
 }
 
-.team-image-wrapper {
+.poet-image-wrapper {
   clip-path: circle(50% at 50% 50%);
   width: 130px;
   height: 130px;
 }
 
-.team-member-image {
+.poet-image {
   max-width: 100%;
 }
 

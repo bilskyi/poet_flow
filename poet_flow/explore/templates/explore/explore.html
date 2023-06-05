@@ -11,19 +11,19 @@
 
     <div class="responsive-container-block">
       {% for poet in poets %}
-        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+        <div class="responsive-cell-block card-container">
           <div class="card">
-            <div class="team-image-wrapper">
-              <img class="team-member-image" src="{{ poet.photo.url }}">
+            <div class="poet-image-wrapper">
+              <img class="poet-image" src="{{ poet.photo.url }}">
             </div>
             <p class="text-blk name">
               <a href="{% url 'poet-detail' poet.slug %}">{{poet.name}}</a>
             </p>
-            <p class="text-blk position">
-              {{poet.birth_date}}
+            <p class="text-blk date">
+              <a href="{% url 'poet-detail' poet.slug %}">{{poet.birth_date}}</a>
             </p>
-            <p class="text-blk feature-text">
-              {{poet.biography | truncatewords:20}}
+            <p class="text-blk biography">
+              <a href="{% url 'poet-detail' poet.slug %}">{{poet.biography | truncatewords:20}}</a>
             </p>
           </div>
         </div>
