@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}"> 
+</head>
+<body>
+    {% include 'home/header.html' %}
+    <div class="container">
+  <div class="card">
+    <div class="card-content">
+        <div class="card-image">
+            <img src="{{poet.photo.url}}" alt="Poet Photo">
+        </div>
+      <h1 class="card-title">{{poet.name}}</h1>
+      <p class="card-dates">Birth Date: <span class="birth-date">{{poet.birth_date}}</span> | Death Date: <span class="death-date">{{poet.death_date}}</span></p>
+      <hr>
+      <p class="card-bio">{{poet.biography}}</p>
+      <p class="card-styles"><strong>Poem Styles:</strong> Style 1, Style 2, Style 3</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+body {
+  background-color: #f2f2f2;
+}
+
+.container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  overflow: hidden;
+  width: 1000px;
+  max-width: 90%;
+}
+
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 20px;
+}
+
+.card-image {
+  float: right;
+  clip-path: circle(50% at 50% 50%);
+  width: 130px;
+  height: 130px;
+  margin-left: auto;
+}
+
+.card-image img {
+  max-width: 100%;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline;
+}
+
+.card-dates {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.card-bio {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.card-styles {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .card-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .card-title {
+    font-size: 56px;
+  }
+
+  .card-dates {
+    font-size: 28px;
+  }
+
+  .card-bio {
+    font-size: 28px;
+  }
+}

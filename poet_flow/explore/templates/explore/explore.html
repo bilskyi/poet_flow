@@ -2,6 +2,8 @@
 <header>
     <link rel="stylesheet" href="{% static 'explore/css/explore.css' %}">
 </header>
+<body>
+{% include 'home/header.html' %}
 <div class="responsive-container-block container">
     <p class="text-blk team-head-text">
       Our Team
@@ -15,7 +17,7 @@
               <img class="team-member-image" src="{{ poet.photo.url }}">
             </div>
             <p class="text-blk name">
-              {{poet.name}}
+              <a href="{% url 'poet-detail' poet.slug %}">{{poet.name}}</a>
             </p>
             <p class="text-blk position">
               {{poet.birth_date}}
@@ -29,5 +31,4 @@
     </div>
 
 </div>
-
-
+</body>
