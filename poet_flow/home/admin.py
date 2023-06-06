@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib import admin
 from .models import *
 
@@ -13,6 +14,11 @@ class PoemAdmin(admin.ModelAdmin):
     list_display_links = list_display
     filter_horizontal = ['tags']
     prepopulated_fields = {'slug': ['title']}
+
+    def save_model(self, request, obj, form, change):
+        obj.save() 
+        if obj.poet_author:
+            obj.poet_author.poems.add(obj)
 
 
 class TagsAdmin(admin.ModelAdmin):

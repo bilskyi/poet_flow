@@ -37,7 +37,7 @@ class Poem(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.title
