@@ -62,7 +62,6 @@ def add_post(request):
     return render(request, 'home/add_poem.html', {'form': form})
 
 
-def view_detail(request, poem_slug):
+def view_detail(request, poet_slug, poem_slug):
     poem = Poem.objects.get(slug=poem_slug)
-
     return render(request, 'home/view_detail.html', {'poem':poem})
