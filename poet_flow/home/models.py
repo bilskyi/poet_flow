@@ -28,7 +28,7 @@ class Poet(models.Model):
 class Poem(models.Model):
     user_author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     poet_author = models.ForeignKey(Poet, on_delete=models.CASCADE, null=True, blank=True)
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=60)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
     tags = models.ManyToManyField('Tags', blank=True)

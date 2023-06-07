@@ -1,0 +1,35 @@
+.navigation {
+    font-family: Arial, sans-serif;
+    margin: 2% 2% 0;
+    margin-bottom: 20px;
+  }
+  
+  .arrow {
+    border: solid #323232;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-bottom: 2px;
+    margin-right: 5px;
+  }
+  
+  .navigation a {
+    color: #494949;
+    padding: 0.4%;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .navigation a:hover {
+    text-decoration: underline;
+  }
+  
+  .navigation .current-page {
+    font-weight: bold;
+  }

@@ -4,14 +4,29 @@
 <head>
   <title>Add Poem Form</title>
   <link rel="stylesheet" href="{% static 'home/css/detail-poem.css' %}">
+  <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
 </head>
 <body>
   {% include 'home/header.html' %}
-  <div class="container">
-    <h2>{{poem.title}}</h2>
-      <div class="form-group">
-        <pre>{{poem.content}}</pre>
-      </div>
+  <div class="navigation">
+    <a href="{% url 'home' %}">Home</a>
+    <i class="arrow right"></i>
+    <a href="{% url 'explore' %}">Poets</a> 
+    <i class="arrow right"></i>
+    <a href="{% url 'poet-detail' poem.poet_author.slug %}">{{poem.poet_author.name}}</a>
+    <i class="arrow right"></i>
+    <span class="current-page">{{poem.title}}</span>
+</div>
+  <div class="poem-container">
+    <h2 class="poem-title">{{ poem.title }}</h2>
+    <div class="by">
+      <p>by <a href="{% url 'poet-detail'  poem.poet_author.slug %}">{{ poem.poet_author }}</a></p>
+    </div>
+    
+    <hr class="breakline-poem">
+    <div class="poem-content">
+      <pre>{{ poem.content }}</pre>
+    </div>
   </div>
   {% include 'home/background_animation.html' %}
 </body>
