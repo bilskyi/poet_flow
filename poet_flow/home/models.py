@@ -1,15 +1,7 @@
+from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import User
 from django.utils.text import slugify
-
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    description = models.TextField()
-
-    def __str__(self) -> str:
-        return self.user.username
 
 
 class Poet(models.Model):
