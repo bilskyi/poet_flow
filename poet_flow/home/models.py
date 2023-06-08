@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import User
 from django.utils.text import slugify
 
 
@@ -18,7 +18,7 @@ class Poet(models.Model):
 
 
 class Poem(models.Model):
-    user_author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    user_author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     poet_author = models.ForeignKey(Poet, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=60)
     content = models.TextField()
