@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
+</head>
+<body>
+    {% include 'home/header.html' %}
+    <div class="navigation">
+        <a href="{% url 'home' %}">Home</a>
+        <i class="arrow right"></i>
+        <a href="{% url 'explore' %}">Poets</a> 
+        <i class="arrow right"></i>
+        <span class="current-page">{{poet.name}}</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-image">
+                    <img src="{{ poet.photo.url }}" alt="Poet Photo">
+                </div>
+                <h1 class="card-title">{{ user.username }}</h1>
+                <p class="card-dates">Email: <span class="birth-date">{{ user.email }}</span> | Phone: <span class="death-date">{{ user.phone }}</span></p>
+                <hr class="breakline">
+                <p class="card-bio">{{ poet.description }}</p>
+                <br>
+                <h2>Poems:</h2>
+                <hr class="breakline">
+                <div class="poems">
+                    {% for poem in user.poems.all %}
+                    <div class="poem-container">
+                        <p class="poem-name"><a href="{% url 'view_detail' poem.poet_author.slug poem.slug %}">{{poem.title}}</p></a>
+                        <hr class="breakline-poem">
+                        <div class="poem-content">
+                            <pre><a href="{% url 'view_detail' poem.poet_author.slug poem.slug %}">{{poem.content | truncatewords:40}}</pre></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

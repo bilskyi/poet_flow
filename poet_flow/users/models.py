@@ -6,17 +6,17 @@ from django.utils.text import slugify
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    username = models.CharField(_('username'), max_length=30, unique=True)
-    email = models.EmailField(_('email address'),
-                              null=True, blank=True)
-    phone = models.CharField(_('phone number'), max_length=10,
-                             null=True, blank=True)
+    username = models.CharField(max_length=30, unique=True)
+    email = models.EmailField(null=True, blank=True)
+    phone = models.CharField(max_length=10, null=True, blank=True)
+    
     description = models.TextField()
+    poems = models.ManyToManyField('home.Poem', blank=True)
 
-    date_joined = models.DateTimeField(_('date joined'), auto_now_add=True)
-    is_active = models.BooleanField(_('active'), default=False)
-    is_staff = models.BooleanField(_('staff'), default=False)
-    is_verified = models.BooleanField(_('verified'), default=False)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     objects = UserManager()
@@ -29,6 +29,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = _('User')
-        verbose_name_plural = _('Users')
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
         unique_together = ('username', 'email', 'phone')

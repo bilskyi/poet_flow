@@ -16,7 +16,7 @@
     {% if poet_author is not null %}
     <a href="{% url 'poet-detail' poem.poet_author.slug %}">{{poem.poet_author.name}}</a>
     {% else %}
-    <a href="{% url 'poet-detail' poem.user_author.slug %}">{{poem.user_author.username}}</a>
+    <a href="{% url 'profile' poem.user_author.slug %}">{{poem.user_author.username}}</a>
     {% endif %}
     <i class="arrow right"></i>
     <span class="current-page">{{poem.title}}</span>
@@ -25,9 +25,9 @@
     <h2 class="poem-title">{{ poem.title }}</h2>
     <div class="by">
       {% if poet_author is not null %}
-      <p>by <a href="{% url 'poet-detail'  poem.poet_author.slug %}">{{ poem.poet_author }}</a></p>
+        <p>by <a href="{% url 'poet-detail'  poem.poet_author.slug %}">{{ poem.poet_author }}</a></p>
       {% else %}
-      <p>by <a href="{% url 'poet-detail'  poem.user_author.slug %}">{{ poem.user_author }}</a></p>
+        <p>by <a href="{% url 'profile'  poem.user_author.slug %}">{{ poem.user_author }}</a></p>
       {% endif %}
     </div>
     
