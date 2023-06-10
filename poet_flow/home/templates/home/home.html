@@ -15,7 +15,7 @@
       {% if poem.user_author is not null %}
         <h2><a href="{% url 'view_detail' poem.user_author.slug poem.slug %}">{{poem.title}}</a></h2>
         <pre><a href="{% url 'view_detail'  poem.user_author.slug poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
-        <p><a href="#">{{ poem.user_author }}</a></p>
+        <p><a href="{% url 'profile' poem.user_author.slug %}">{{ poem.user_author }}</a></p>
       {% else %}
         <h2><a href="{% url 'view_detail' poem.poet_author.slug poem.slug %}">{{poem.title}}</a></h2>
         <pre><a href="{% url 'view_detail'  poem.poet_author.slug poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
