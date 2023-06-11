@@ -24,7 +24,8 @@ def register_user(request):
             user = form.save()
             login(request, user)
             return redirect('home')
-    form = UserRegisterForm()
+    else:
+        form = UserRegisterForm()
     return render(request, 'home/register.html', {'form': form})
 
 
@@ -32,12 +33,13 @@ def login_user(request):
     form = UserAuthenticationForm()
     if request.method == 'POST':
         form = UserAuthenticationForm(request, data=request.POST)
-        if form.is_valid():
+        if form.is_valid(): 
             user = authenticate(username=form.cleaned_data.get('username'),
                             password=form.cleaned_data.get('password'))
             login(request, user)
             return redirect('home')
-    form = UserAuthenticationForm()
+    else:
+        form = UserAuthenticationForm()
     return render(request, 'home/login.html', {'form': form})
 
 @login_required()
