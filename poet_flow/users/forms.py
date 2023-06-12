@@ -3,12 +3,14 @@ from .models import User
 
 
 class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField(
-        max_length=255,
-        widget=(forms.TextInput(attrs={'value': 'request.username'}))
+    username = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    phone = forms.CharField(required=False)
+    description = forms.CharField(
+        required=False,
+        widget=forms.Textarea()
     )
-
-
+    
     class Meta:
         model = User
         fields = ['username', 'email', 'phone', 'description']

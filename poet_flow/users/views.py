@@ -14,5 +14,7 @@ def settings(request):
         form = UpdateUserForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            
+    else:
+        form = UpdateUserForm(instance=request.user)
+
     return render(request, 'users/settings.html', {'form': form})
