@@ -75,7 +75,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     padding: 0;
     font-weight: bold;
     color: #222;
-    font-family: Poppins;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 36px; }
   
   .main {
@@ -92,7 +92,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     color: #222;
     background: #f8f8f8;
     font-weight: 400;
-    font-family: Poppins; }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
   
   .container {
     width: 100%;
@@ -217,7 +217,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     border: none;
     border-bottom: 1px solid #999;
     padding: 6px 30px;
-    font-family: Poppins;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box; }
     input::-webkit-input-placeholder {
       color: #999; }
@@ -409,6 +409,16 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     margin-right: 20px;
     margin-top: 10px; }
   
+  .error-list {
+      list-style-type: none;
+      color: #da3232;
+  }
+  
+  .error-item {
+      margin-bottom: 5px;
+  }
+  
+
   @media screen and (max-width: 1200px) {
     .container {
       width: calc( 100% - 30px);

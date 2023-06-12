@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Sign Up </title>
 
     <!-- Main css -->
     <link rel="stylesheet" href="{% static 'home/css/login-register.css' %}">
@@ -41,6 +41,15 @@
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 {{form.password2}}
                             </div>
+                            {% if form.errors %}
+                            <ul class="error-list">
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <li class="error-item">{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                             </div>

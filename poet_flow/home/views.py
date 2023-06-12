@@ -33,13 +33,12 @@ def login_user(request):
     form = UserAuthenticationForm()
     if request.method == 'POST':
         form = UserAuthenticationForm(request, data=request.POST)
-        if form.is_valid(): 
+        if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('username'),
                             password=form.cleaned_data.get('password'))
             login(request, user)
             return redirect('home')
-    else:
-        form = UserAuthenticationForm()
+
     return render(request, 'home/login.html', {'form': form})
 
 @login_required()
