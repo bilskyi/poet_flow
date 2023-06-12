@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-image">
-                    <img src="{{ poet.photo.url }}" alt="Poet Photo">
+                    <img src="{{ user.avatar.url }}" alt="Poet Photo">
                 </div>
                 <h1 class="card-title">{{ user.username }}</h1>
                 <p class="card-dates">Email: <span class="birth-date">{{ user.email }}</span> | Phone: <span class="death-date">{{ user.phone }}</span></p>
@@ -31,10 +31,10 @@
                 <div class="poems">
                     {% for poem in user.poems.all %}
                     <div class="poem-container">
-                        <p class="poem-name"><a href="{% url 'view_detail' poem.poet_author.slug poem.slug %}">{{poem.title}}</p></a>
+                        <p class="poem-name"><a href="{% url 'view_detail' poem.user_author.slug poem.slug %}">{{poem.title}}</p></a>
                         <hr class="breakline-poem">
                         <div class="poem-content">
-                            <pre><a href="{% url 'view_detail' poem.poet_author.slug poem.slug %}">{{poem.content | truncatewords:40}}</pre></a>
+                            <pre><a href="{% url 'view_detail' poem.user_author.slug poem.slug %}">{{poem.content | truncatewords:40}}</pre></a>
                         </div>
                     </div>
                     {% endfor %}

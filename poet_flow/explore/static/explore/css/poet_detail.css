@@ -56,6 +56,7 @@ body {
 }
 
 .card-content {
+  width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -83,7 +84,6 @@ body {
 .poems {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 

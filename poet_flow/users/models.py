@@ -8,8 +8,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=30, unique=True)
     email = models.EmailField(null=True, blank=True)
     phone = models.CharField(max_length=10, null=True, blank=True)
-    
-    description = models.TextField()
+    avatar = models.ImageField(default='photo/default.png')
+    description = models.TextField(blank=True)
     poems = models.ManyToManyField('home.Poem', blank=True)
 
     date_joined = models.DateTimeField(auto_now_add=True)

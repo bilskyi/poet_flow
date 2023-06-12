@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+from users.models import User
 
 from .models import Poem
 
@@ -56,6 +56,7 @@ def add_post(request):
             poem.user_author = request.user
             poem.save()
             form.save_m2m()  # Save the many-to-many relationships after saving the poem instance
+            request.user.poems.add(poem)
             return redirect('home')
     else:
         form = AddPost()
