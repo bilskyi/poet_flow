@@ -5,8 +5,6 @@
 <head>
     <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}">
     <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
-    
-    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
 </head>
 <body>
     {% include 'home/header.html' %}
@@ -21,19 +19,8 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-image">
-                  <div class="personal-image">
-                    <label class="label">
-                      <input type="file" name="avatar" accept="image/*" id="id_avatar" />
-                      <figure class="personal-figure">
-                        <img src="{{user.avatar.url}}" class="personal-avatar" alt="avatar">
-                        <figcaption class="personal-figcaption">
-                          <img src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
-                        </figcaption>
-                      </figure>
-                    </label>
-                  </div>
+                    <img src="{{ user.avatar.url }}" alt="Poet Photo">
                 </div>
-                {{form.avatar}}
                 <div class="card-details">
                     <h1 class="card-title">{{ user.username }}</h1>
                     {% if request.user  == user %}
