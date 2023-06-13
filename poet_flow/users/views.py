@@ -12,11 +12,9 @@ def profile(request, slug):
 
 @login_required
 def settings(request):
-    if request.user.id != request.GET.get('user_id'):
-        raise PermissionDenied
     
     if request.method == 'POST':
-        form = UpdateUserForm(request.POST, instance=request.user)
+        form = UpdateUserForm(request.POST, request.FILES, instance=request.user )
         if form.is_valid():
             form.save()
     else:
