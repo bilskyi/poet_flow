@@ -5,6 +5,7 @@
 <head>
     <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}">
     <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
 </head>
 <body>
     {% include 'home/header.html' %}
@@ -18,8 +19,8 @@
     <div class="container">
         <div class="card">
             <div class="card-content">
-                <div class="card-image">
-                    <img src="{{ user.avatar.url }}" alt="Poet Photo">
+                <div class="personal-image">
+                    <img src="{{user.avatar.url}}" class="personal-avatar move-right" alt="avatar" id="avatarPreview">
                 </div>
                 <div class="card-details">
                     <h1 class="card-title">{{ user.username }}</h1>
