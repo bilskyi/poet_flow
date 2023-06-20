@@ -13,22 +13,14 @@
     <i class="arrow right"></i>
     <a href="{% url 'explore' %}">Poets</a> 
     <i class="arrow right"></i>
-    {% if poem.poet_author is not null %}
-      <a href="{% url 'poet-detail' poem.poet_author.slug %}">{{poem.poet_author.name}}</a>
-    {% else %}
-      <a href="{% url 'profile' poem.user_author.slug %}">{{poem.user_author.username}}</a>
-    {% endif %}
+      <a href="{% url 'poet-detail' poem.author.slug %}">{{poem.author.name}}</a>
     <i class="arrow right"></i>
     <span class="current-page">{{poem.title}}</span>
 </div>
   <div class="poem-container">
     <h2 class="poem-title">{{ poem.title }}</h2>
     <div class="by">
-      {% if poem.poet_author is not null %}
-        <p>by <a href="{% url 'poet-detail'  poem.poet_author.slug %}">{{ poem.poet_author }}</a></p>
-      {% else %}
-        <p>by <a href="{% url 'profile'  poem.user_author.slug %}">{{ poem.user_author }}</a></p>
-      {% endif %}
+        <p>by <a href="{% url 'profile'  poem.author.slug %}">{{ poem.author }}</a></p>
     </div>
     
     <hr class="breakline-poem">
