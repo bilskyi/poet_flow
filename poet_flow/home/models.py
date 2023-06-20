@@ -10,14 +10,14 @@ class Poet(models.Model):
     biography = models.TextField()
     birth_date = models.DateField()
     death_date = models.DateField(null=True, blank=True)
-    poems = models.ManyToManyField('Poem', blank=True)
+    poems = models.ManyToManyField('ClassicPoem', blank=True)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     def __str__(self) -> str:
         return self.name
 
 
-class Poem(models.Model):
+class BasePoem(models.Model):
     title = models.CharField(max_length=60)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
@@ -32,13 +32,16 @@ class Poem(models.Model):
     def __str__(self) -> str:
         return self.title
     
+    class Meta:
+        abstract = True
 
-class ClassicPoem(Poem):
-    author = models.ForeignKey(Poem, on_delete=models.CASCADE, related_name='poems')
+
+class ClassicPoem(BasePoem):
+    author = models.ForeignKey(Poet, on_delete=models.CASCADE, null=True)
 
 
-class UserPoem(Poem):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+class UserPoem(BasePoem):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
 
 class Tags(models.Model):

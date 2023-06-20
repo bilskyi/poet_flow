@@ -23,7 +23,6 @@ class TagsAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Poet, PoetAdmin)
-admin.site.register(Poem, PoemAdmin)
 admin.site.register(Tags, TagsAdmin)
 admin.site.register(ClassicPoem)
 admin.site.register(UserPoem)
