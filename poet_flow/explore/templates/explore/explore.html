@@ -5,10 +5,14 @@
 <body>
 {% include 'home/header.html' %}
 <div class="responsive-container-block container">
-    <p class="text-blk poet-head-text">
-      All Poets
-    </p>
-
+  <div class="text-blk poet-head-text">
+    <div class="selected">
+      <a href="#">Classic Poets</a>
+    </div>
+    <div>
+      <a href="#">User Poets</a>
+    </div>
+  </div>
     <div class="responsive-container-block">
       {% for poet in poets %}
         <div class="responsive-cell-block card-container">
