@@ -18,8 +18,6 @@ class Poet(models.Model):
 
 
 class Poem(models.Model):
-    user_author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    poet_author = models.ForeignKey(Poet, on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=60)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
@@ -33,6 +31,14 @@ class Poem(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
+
+class ClassicPoem(Poem):
+    author = models.ForeignKey(Poem, on_delete=models.CASCADE, related_name='poems')
+
+
+class UserPoem(Poem):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Tags(models.Model):

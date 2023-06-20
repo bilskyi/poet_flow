@@ -10,15 +10,10 @@ class PoetAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['name']}
 
 class PoemAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user_author', 'poet_author', 'title', 'date']
+    list_display = ['id', 'title', 'date']
     list_display_links = list_display
     filter_horizontal = ['tags']
     prepopulated_fields = {'slug': ['title']}
-
-    def save_model(self, request, obj, form, change):
-        obj.save() 
-        if obj.poet_author:
-            obj.poet_author.poems.add(obj)
 
 
 class TagsAdmin(admin.ModelAdmin):
@@ -30,3 +25,5 @@ class TagsAdmin(admin.ModelAdmin):
 admin.site.register(Poet, PoetAdmin)
 admin.site.register(Poem, PoemAdmin)
 admin.site.register(Tags, TagsAdmin)
+admin.site.register(ClassicPoem)
+admin.site.register(UserPoem)
