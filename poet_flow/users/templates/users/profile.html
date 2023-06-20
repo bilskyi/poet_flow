@@ -38,10 +38,10 @@
                 <div class="poems">
                     {% for poem in user.poems.all %}
                     <div class="poem-container">
-                        <p class="poem-name"><a href="{% url 'view_detail' poem.user_author.slug poem.slug %}">{{poem.title}}</p></a>
+                        <p class="poem-name"><a href="{% url 'view_detail' poem.author.slug poem.slug %}">{{poem.title}}</p></a>
                         <hr class="breakline-poem">
                         <div class="poem-content">
-                            <pre><a href="{% url 'view_detail' poem.user_author.slug poem.slug %}">{{poem.content | truncatewords:40}}</pre></a>
+                            <pre><a href="{% url 'view_detail' poem.author.slug poem.slug %}">{{poem.content | truncatewords:40}}</pre></a>
                         </div>
                     </div>
                     {% endfor %}

@@ -2,7 +2,7 @@ from django import forms
 from .models import User
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
-from home.models import ClassicPoem, Tags
+from home.models import ClassicPoem, Tags, UserPoem
 from users.models import User
 from django.contrib.auth import authenticate
 
@@ -39,7 +39,7 @@ class AddPost(forms.ModelForm):
 
 
     class Meta:
-        model = ClassicPoem
+        model = UserPoem
         fields = [ 'title', 'content', 'tags']
 
 class UpdateUserForm(forms.ModelForm):

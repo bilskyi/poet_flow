@@ -40,7 +40,7 @@ def add_post(request):
         form = AddPost(request.POST)  # Bind the form data to the form instance
         if form.is_valid():
             poem = form.save(commit=False)
-            poem.user_author = request.user
+            poem.author = request.user
             poem.save()
             form.save_m2m()  # Save the many-to-many relationships after saving the poem instance
             request.user.poems.add(poem)
