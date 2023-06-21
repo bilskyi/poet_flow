@@ -6,34 +6,16 @@
 {% include 'home/header.html' %}
 <div class="responsive-container-block container">
   <div class="text-blk poet-head-text">
-    <div class="selected">
-      <a href="#">Classic Poets</a>
-    </div>
-    <div>
-      <a href="#">User Poets</a>
-    </div>
+    <div class="{% if selected_poets == 'classic' %}selected{% endif %}">
+      <a href="{% url 'explore' %}">Classic Poets</a>
+  </div>
+  <div class="{% if selected_poets == 'user' %}selected{% endif %}">
+      <a href="{% url 'user_poets' %}">User Poets</a>
+  </div>
   </div>
     <div class="responsive-container-block">
-      {% for poet in poets %}
-        <div class="responsive-cell-block card-container">
-          <div class="card">
-            <div class="poet-image-wrapper">
-              <img class="poet-image" src="{{ poet.photo.url }}">
-            </div>
-            <p class="text-blk name">
-              <a href="{% url 'poet-detail' poet.slug %}">{{poet.name}}</a>
-            </p>
-            <p class="text-blk date">
-              <a href="{% url 'poet-detail' poet.slug %}">{{poet.birth_date | date:"d.m.Y" }} - {{poet.death_date | date:"d.m.Y" }}
-              </a>
-            </p>
-            <p class="text-blk biography">
-              <a href="{% url 'poet-detail' poet.slug %}">{{poet.biography | truncatewords:20}}</a>
-            </p>
-          </div>
-        </div>
-        {% endfor %}
+      {% block poets %}
+      {% endblock %}
     </div>
-
 </div>
 </body>

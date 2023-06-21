@@ -1,0 +1,19 @@
+{% extends 'explore/explore.html' %}
+
+{% block poets %}
+{% for poet in poets %}
+<div class="responsive-cell-block card-container">
+  <div class="card">
+    <div class="poet-image-wrapper">
+      <img class="poet-image" src="{{ poet.avatar.url }}">
+    </div>
+    <p class="text-blk name">
+      <a href="{% url 'poet-detail' poet.slug %}">{{poet.username}}</a>
+    </p>
+    <p class="text-blk biography">
+      <a href="{% url 'poet-detail' poet.slug %}">{{poet.description | truncatewords:20}}</a>
+    </p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
