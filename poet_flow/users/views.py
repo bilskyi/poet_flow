@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import User
 from django.contrib.auth import login, authenticate, logout
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from home.models import Poet
+
 
 def register_user(request):
     if request.method == 'POST':
@@ -52,8 +54,13 @@ def add_post(request):
 
 
 def profile(request, slug):
-    user = User.objects.get(slug=slug)
-    return render(request, 'users/profile.html', {'user': user})
+    try:
+        user = User.objects.get(slug=slug)
+        return render(request, 'users/profile.html', {'user': user})
+    except User.DoesNotExist:
+        poet = Poet.objects.get(slug=slug)
+        return render(request, 'explore/poet_detail.html', {'poet': poet})
+
 
 @login_required
 def settings(request):

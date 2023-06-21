@@ -17,5 +17,8 @@ def home(request):
 
 
 def view_detail(request, poet_slug, poem_slug):
-    poem = get_object_or_404(ClassicPoem, slug=poem_slug) or get_object_or_404(UserPoem, slug=poem_slug)
+    try:
+        poem = UserPoem.objects.get(slug=poem_slug)
+    except User.DoesNotExist:
+        poem = ClassicPoem.objects.get(slug=poem_slug)
     return render(request, 'home/view_detail.html', {'poem': poem})
