@@ -5,10 +5,14 @@
 <div class="responsive-cell-block card-container">
   <div class="card">
     <div class="poet-image-wrapper">
-      <img class="user-image" src="{{ poet.avatar.url }}">
+      <a href="{% url 'poet-detail' poet.slug %}">
+        <img class="user-image" src="{{ poet.avatar.url }}">
+      </a>
     </div>
     <p class="text-blk name">
-      <a href="{% url 'poet-detail' poet.slug %}">{{poet.username}}</a>
+      <a href="{% url 'poet-detail' poet.slug %}">
+        {{poet.username}}
+      </a>
     </p>
   </div>
 </div>
