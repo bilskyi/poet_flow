@@ -10,9 +10,6 @@
     <p class="text-blk name">
       <a href="{% url 'poet-detail' poet.slug %}">{{poet.username}}</a>
     </p>
-    <p class="text-blk biography">
-      <a href="{% url 'poet-detail' poet.slug %}">{{poet.description | truncatewords:20}}</a>
-    </p>
   </div>
 </div>
 {% endfor %}

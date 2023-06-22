@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
+</head>
+<body>
+    {% include 'home/header.html' %}
+    <div class="navigation">
+        <a href="{% url 'home' %}">Home</a>
+        <i class="arrow right"></i>
+        <a href="{% url 'explore' %}">Poets</a>
+        <i class="arrow right"></i>
+        <span class="current-page">{{poet.name}}</span>
+    </div>
+    <div class="container">
+        <div class="card">
+            {% block content %}
+                
+            {% endblock content %}
+        </div>
+    </div>
+</body>
+</html>

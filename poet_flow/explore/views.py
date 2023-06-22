@@ -28,11 +28,10 @@ def user_poets(request):
 
 
 def poet_detail(request, slug):
-    
     try:
         poet = User.objects.get(slug=slug)
-        
+        return render(request, 'explore/user_detail.html', {'poet': poet})
     except User.DoesNotExist:
         poet = Poet.objects.get(slug=slug)
 
-    return render(request, 'explore/poet_detail.html', {'poet': poet})
+        return render(request, 'explore/poet_detail.html', {'poet': poet})

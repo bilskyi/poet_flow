@@ -3,12 +3,18 @@
 {% block content %}
 <div class="card-content">
     <div class="card-image">
-        <img src="{{ poet.photo.url }}" alt="Poet Photo">
+        <img src="{{poet.avatar.url}}" class="personal-avatar move-right" alt="avatar" id="avatarPreview">
     </div>
-    <h1 class="card-title">{{ poet.name }}</h1>
-    <p class="card-dates">Birth Date: <span class="birth-date">{{ poet.birth_date }}</span> | Death Date: <span class="death-date">{{ poet.death_date }}</span></p>
+    <div class="card-details">
+        <h1 class="card-title">{{ poet.username }}</h1>
+        {% if request.user  == poet %}
+        <a href="{% url 'settings' %}" class="edit-profile-button">Edit Profile</a>
+        {% endif %}
+    </div>
+    <p class="card-dates">Email: <span class="birth-date">{{ poet.email }}
+    </span> {% if poet.phone %} | Phone: <span class="death-date">{{ poet.phone }}</span>{% endif %}</p>
     <hr class="breakline">
-    <p class="card-bio">{{ poet.biography }}</p>
+    <p class="card-bio">{{ poet.description }}</p>
     <br>
     <h2>Poems:</h2>
     <hr class="breakline">
