@@ -51,6 +51,26 @@ body {
   margin-left: auto;
 }
 
+.personal-avatar {
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 2px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  transition: all ease-in-out .2s;
+}
+
+.move-right {
+  float: right;
+}
+
+.personal-avatar:hover {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
 .card-image img {
   max-width: 100%;
 }
