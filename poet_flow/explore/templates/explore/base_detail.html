@@ -8,6 +8,7 @@
 </head>
 <body>
     {% include 'home/header.html' %}
+    {% block navigation %}
     <div class="navigation">
         <a href="{% url 'home' %}">Home</a>
         <i class="arrow right"></i>
@@ -15,6 +16,7 @@
         <i class="arrow right"></i>
         <span class="current-page">{{poet.name}}{{poet.username}}</span>
     </div>
+    {% endblock navigationa %}
     <div class="container">
         <div class="card">
             {% block content %}
