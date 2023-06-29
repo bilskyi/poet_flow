@@ -55,8 +55,8 @@ def add_post(request):
 
 def profile(request, slug):
     try:
-        user = User.objects.get(slug=slug)
-        return render(request, 'users/profile.html', {'user': user})
+        poet = User.objects.get(slug=slug)
+        return render(request, 'explore/user_detail.html', {'poet': poet})
     except User.DoesNotExist:
         poet = Poet.objects.get(slug=slug)
         return render(request, 'explore/poet_detail.html', {'poet': poet})
