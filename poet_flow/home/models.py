@@ -15,7 +15,15 @@ class Poet(models.Model):
 
     
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
+        original_slug = slugify(self.name)
+        unique_slug = original_slug
+        counter = 1
+
+        while Poet.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{original_slug}-{counter}"
+            counter += 1
+
+        self.slug = unique_slug
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:
@@ -27,11 +35,18 @@ class BasePoem(models.Model):
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
     tags = models.ManyToManyField('Tags', blank=True)
-
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        original_slug = slugify(self.name)
+        unique_slug = original_slug
+        counter = 1
+
+        while BasePoem.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{original_slug}-{counter}"
+            counter += 1
+
+        self.slug = unique_slug
         super().save(*args, **kwargs)
 
     def __str__(self) -> str:
