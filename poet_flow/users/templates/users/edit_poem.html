@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Poem Form</title>
+  <link rel="stylesheet" href="{% static 'home/css/detail-poem.css' %}">
+  <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/add-poem.css' %}">
+
+</head>
+<body>
+  {% include 'home/header.html' %}
+  <div class="navigation">
+    <a href="{% url 'home' %}">Home</a>
+</div>
+  <div class="poem-container">
+    <form method="post">
+        {% csrf_token %}
+        <h2 class="poem-title">
+            <input type="text" name="{{form.title.name}}" value="{{poem.title}}" maxlength="30" id="{{form.title.id}}">
+        </h2>
+        <div class="by">
+            <p>by <a href="{% url 'profile'  poem.author.slug %}">{{ poem.author }}</a></p>
+        </div>
+        <hr class="breakline-poem">
+        <div class="form-group">
+            <textarea name="{{ form.content.name }}" id="{{ form.content.id }}" rows="10" cols="40" >{{poem.content}}</textarea>
+        </div>
+        <div class="form-group">
+            <button class="btn" type="submit">Submit</button>
+        </div>
+</form>
+  </div>
+  {% include 'home/background_animation.html' %}
+</body>
+</html>

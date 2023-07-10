@@ -3,7 +3,7 @@ from .models import User
 from django.contrib.auth import login, authenticate, logout
 from .forms import *
 from django.contrib.auth.decorators import login_required
-from home.models import Poet
+from home.models import Poet, UserPoem
 
 
 def register_user(request):
@@ -24,11 +24,12 @@ def login_user(request):
         form = UserAuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = authenticate(username=form.cleaned_data.get('username'),
-                            password=form.cleaned_data.get('password'))
+                                password=form.cleaned_data.get('password'))
             login(request, user)
             return redirect('home')
 
     return render(request, 'home/login.html', {'form': form})
+
 
 @login_required()
 def logout_user(request):
@@ -49,7 +50,7 @@ def add_post(request):
             return redirect('home')
     else:
         form = AddPost()
-    
+
     return render(request, 'home/add_poem.html', {'form': form})
 
 
@@ -64,9 +65,10 @@ def profile(request, slug):
 
 @login_required
 def settings(request):
-    
+
     if request.method == 'POST':
-        form = UpdateUserForm(request.POST, request.FILES, instance=request.user )
+        form = UpdateUserForm(request.POST, request.FILES,
+                              instance=request.user)
         if form.is_valid():
             form.save()
     else:
@@ -74,3 +76,15 @@ def settings(request):
 
     return render(request, 'users/settings.html', {'form': form})
 
+
+@login_required
+def edit_poem(request, user_slug, poem_slug):
+    poem = get_object_or_404(UserPoem, title=poem_slug)
+    if request.method == 'POST':
+        form = AddPost(request.POST, instance=poem)
+        if form.is_valid():
+            updated_poem = form.save()
+            return redirect('edit_poem', user_slug=user_slug, poem_slug=updated_poem.slug)
+    else:
+        form = AddPost(instance=poem)
+    return render(request, 'users/edit_poem.html', {'form': form, 'poem': poem})

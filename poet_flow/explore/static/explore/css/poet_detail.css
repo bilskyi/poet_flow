@@ -125,6 +125,13 @@ body {
   flex-wrap: wrap;
 }
 
+.edit-button {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  margin-right: 20px;
+  float: right;
+}
+
 
 .poem-container {
   width: 33%;
