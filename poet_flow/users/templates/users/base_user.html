@@ -31,11 +31,7 @@
             </p>
             <hr class="breakline-poem">
             <div class="poem-content">
-                <pre>
-                    <a href="{% url 'view_detail' poem.author.slug poem.slug %}">
-                        {{ poem.content | truncatewords:40 }}
-                    </a>
-                </pre>
+                <pre><a href="{% url 'view_detail' poem.author.slug poem.slug %}">{{poem.content | truncatewords_html:40}}</a></pre>
             </div>
         </div>
         {% endfor %}
