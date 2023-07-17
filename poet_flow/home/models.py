@@ -37,8 +37,17 @@ class BasePoem(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        original_slug = slugify(self.title)
+        unique_slug = original_slug
+        counter = 1
+
+        while self.__class__.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{original_slug}-{counter}"
+            counter += 1
+
+        self.slug = unique_slug
         super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.title

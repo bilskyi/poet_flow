@@ -79,7 +79,7 @@ def settings(request):
 
 @login_required
 def edit_poem(request, user_slug, poem_slug):
-    poem = get_object_or_404(UserPoem, title=poem_slug)
+    poem = get_object_or_404(UserPoem, slug=poem_slug)
     if request.method == 'POST':
         form = AddPost(request.POST, instance=poem)
         if form.is_valid():
