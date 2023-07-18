@@ -1,12 +1,10 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
+{% block head %}
   <title>Add Poem Form</title>
   <link rel="stylesheet" href="{% static 'home/css/add-poem.css' %}">
-</head>
-<body>
-  {% include 'home/header.html' %}
+{% endblock head %}
+{% block content %}
   <div class="container">
     <h2>Add Poem Form</h2>
     <form method="post" action="{% url 'add_post' %}">
@@ -34,5 +32,4 @@
     </form>
   </div>
   {% include 'home/background_animation.html' %}
-</body>
-</html>
+{% endblock content %}

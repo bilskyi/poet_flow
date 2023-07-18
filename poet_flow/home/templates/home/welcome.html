@@ -1,12 +1,10 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
+{% block head %}
   <title>PoetFlow - Your Creation</title>
   <link rel="stylesheet" href="{% static 'home/css/welcome.css' %}">
-</head>
-<body>
-  {% include 'home/header.html' %}
+{% endblock head %}
+{% block content %}
   <div class="container">
     <h1>
       <span>Welcome to</span>
@@ -19,10 +17,5 @@
     <p>Discover and save creative ideas from around the web.</p>
     <a href="{% url 'home' %}" class="btn">Get Inspired</a>
   </div>
-
-
 {% include 'home/background_animation.html' %}
-
-
-</body>
-</html>
+{% endblock content %}

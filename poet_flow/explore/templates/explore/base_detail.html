@@ -1,13 +1,10 @@
+{% extends 'home/base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html>
-<head>
+{% block head %}
     <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}">
     <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
-</head>
-<body>
-    {% include 'home/header.html' %}
+{% endblock head %}
+{% block content %}
     {% block navigation %}
     <div class="navigation">
         <a href="{% url 'home' %}">Home</a>
@@ -19,10 +16,9 @@
     {% endblock navigation %}
     <div class="container">
         <div class="card">
-            {% block content %}
+            {% block card_content %}
 
-            {% endblock content %}
+            {% endblock card_content %}
         </div>
     </div>
-</body>
-</html>
+{% endblock content %}

@@ -1,15 +1,12 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
+{% block head %}
   <title>Add Poem Form</title>
   <link rel="stylesheet" href="{% static 'home/css/detail-poem.css' %}">
   <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/add-poem.css' %}">
-
-</head>
-<body>
-  {% include 'home/header.html' %}
+{% endblock head %}
+{% block content %}
   <div class="navigation">
     <a href="{% url 'home' %}">Home</a>
 </div>
@@ -32,5 +29,4 @@
 </form>
   </div>
   {% include 'home/background_animation.html' %}
-</body>
-</html>
+{% endblock content %}
