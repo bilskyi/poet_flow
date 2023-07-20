@@ -1,6 +1,7 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block head %}
+    <title>{{poet.name}}{{poet.username}} | PoetFlow</title>
     <link rel="stylesheet" href="{% static 'explore/css/poet_detail.css' %}">
     <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
 {% endblock head %}

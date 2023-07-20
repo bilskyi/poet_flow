@@ -1,7 +1,7 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block head %}
-  <title>Add Poem Form</title>
+  <title>{{poem.title}} - {{poem.author}} | PoetFlow</title>
   <link rel="stylesheet" href="{% static 'home/css/detail-poem.css' %}">
   <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
 {% endblock head %}

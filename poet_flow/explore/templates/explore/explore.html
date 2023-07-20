@@ -1,9 +1,10 @@
+{% extends 'home/base.html' %}
 {% load static %}
-<header>
+{% block head %}
+    <title>PoetFlow</title>
     <link rel="stylesheet" href="{% static 'explore/css/explore.css' %}">
-</header>
-<body>
-{% include 'home/header.html' %}
+{% endblock head %}
+{% block content %}
 <div class="responsive-container-block container">
   <div class="text-blk poet-head-text">
     <div class="{% if selected_poets == 'classic' %}selected{% endif %}">
@@ -18,4 +19,4 @@
       {% endblock %}
     </div>
 </div>
-</body>
+{% endblock content %}
