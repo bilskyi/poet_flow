@@ -1,5 +1,5 @@
 {% extends 'explore/base_detail.html' %}
-
+{% load static %}
 {% block card_content %}
 <div class="card-content">
     <div>
@@ -35,6 +35,12 @@
             </div>
         </div>
         {% endfor %}
+        {% if not poet.poems.all %}
+        <div class="empty">
+            <img src="{% static 'home/img/empty.png' %}" alt="empty profile" class="empty">
+            <p>It seems here's no poems yet...</p>
+        {% endif %}
+    </div>
     </div>
 </div>
 {% endblock card_content %}
