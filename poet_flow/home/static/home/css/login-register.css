@@ -58,7 +58,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     -ms-appearance: radio !important; }
   
   img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto; }
   
   figure {
@@ -168,7 +168,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
   
   .form-submit {
     display: inline-block;
-    background: #6dabe4;
+    background: #161616;
     color: #fff;
     border-bottom: none;
     width: auto;
@@ -181,7 +181,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     margin-top: 25px;
     cursor: pointer; }
     .form-submit:hover {
-      background: #4292dc; }
+      background: #0b0b0b; }
   
   #signin {
     margin-top: 16px; }

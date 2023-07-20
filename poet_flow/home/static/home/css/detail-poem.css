@@ -69,8 +69,3 @@ svg {
 .poem-container {
   border: 1px solid #ccc; /* Change the color to your preference */
 }
-
-/* Add some padding to the header */
-.header {
-  padding: 10px;
-}
