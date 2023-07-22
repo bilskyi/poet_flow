@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'home/css/header.css' %}" />
     <link rel="stylesheet" href="{% static 'home/css/dropdown.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
       rel="shortcut icon"
       href="{% static 'home/img/favicon.png' %}"
@@ -18,9 +19,16 @@
     <header class="header">
       <li class="logo">
         <a href="{% url 'welcome' %}"
-          ><img src="{% static 'home/img/logo-white.png' %}" alt="Logo"
-        /></a>
+          ><img src="{% static 'home/img/logo-white.png' %}" alt="Logo"></a>
       </li>
+      <div class="search-bar">
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search">
+          <button id="search-button" type="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
       <ul class="main-nav">
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'explore' %}">Poets & Poems</a></li>
