@@ -83,8 +83,11 @@ def edit_poem(request, user_slug, poem_slug):
     if request.method == 'POST':
         form = AddPost(request.POST, instance=poem)
         if form.is_valid():
-            updated_poem = form.save()
-            return redirect('edit_poem', user_slug=user_slug, poem_slug=updated_poem.slug)
+            if not form.changed_data:
+                pass
+            else:
+                updated_poem = form.save()
+                return redirect('edit_poem', user_slug=user_slug, poem_slug=updated_poem.slug)
     else:
         form = AddPost(instance=poem)
     return render(request, 'users/edit_poem.html', {'form': form, 'poem': poem})
