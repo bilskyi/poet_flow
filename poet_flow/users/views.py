@@ -66,7 +66,6 @@ def profile(request, slug):
 
 @login_required
 def settings(request):
-
     if request.method == 'POST':
         form = UpdateUserForm(request.POST, request.FILES,
                               instance=request.user)
@@ -74,7 +73,6 @@ def settings(request):
             form.save()
     else:
         form = UpdateUserForm(instance=request.user)
-
     return render(request, 'users/settings.html', {'form': form})
 
 

@@ -12,9 +12,10 @@
 </div>
   <div class="poem-container">
     <form method="post">
-        {% csrf_token %}
-        
-      <a href="{% url 'delete_poem' request.user.slug poem.slug %}">Delete</a>
+        {% csrf_token %}   
+        <div class="delete-button-container">        
+        <a href="{% url 'delete_poem' request.user.slug poem.slug %}" class="delete-button">Delete</a>
+        </div>
         <h2 class="poem-title">
             <input type="text" name="{{form.title.name}}" value="{{poem.title}}" maxlength="30" id="{{form.title.id}}">
         </h2>
