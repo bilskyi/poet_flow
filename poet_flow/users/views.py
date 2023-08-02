@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from home.models import Poet, UserPoem
+from django.http.response import HttpResponseForbidden
 
 
 def register_user(request):
@@ -38,18 +39,18 @@ def logout_user(request):
 
 
 @login_required(login_url='/login/')
-def add_post(request):
+def add_poem(request):
     if request.method == 'POST':
-        form = AddPost(request.POST)  # Bind the form data to the form instance
+        form = AddPoemForm(request.POST)  # Bind the form data to the form instance
         if form.is_valid():
             poem = form.save(commit=False)
             poem.author = request.user
             poem.save()
             form.save_m2m()  # Save the many-to-many relationships after saving the poem instance
             request.user.poems.add(poem)
-            return redirect('home')
+            return redirect('profile', request.user.slug)
     else:
-        form = AddPost()
+        form = AddPoemForm()
 
     return render(request, 'home/add_poem.html', {'form': form})
 
@@ -80,8 +81,10 @@ def settings(request):
 @login_required
 def edit_poem(request, user_slug, poem_slug):
     poem = get_object_or_404(UserPoem, slug=poem_slug)
+    if not request.user.slug == poem.author.slug:
+        return HttpResponseForbidden("You do not have permission to edit this poem.")
     if request.method == 'POST':
-        form = AddPost(request.POST, instance=poem)
+        form = AddPoemForm(request.POST, instance=poem)
         if form.is_valid():
             if not form.changed_data:
                 pass
@@ -89,5 +92,14 @@ def edit_poem(request, user_slug, poem_slug):
                 updated_poem = form.save()
                 return redirect('edit_poem', user_slug=user_slug, poem_slug=updated_poem.slug)
     else:
-        form = AddPost(instance=poem)
+        form = EditPoemForm(instance=poem)
     return render(request, 'users/edit_poem.html', {'form': form, 'poem': poem})
+
+
+@login_required
+def delete_poem(request, user_slug, poem_slug):
+    poem = get_object_or_404(UserPoem, slug=poem_slug)
+    if not request.user.slug == poem.author.slug:
+        return HttpResponseForbidden("You do not have permission to edit this poem.")
+    poem.delete()
+    return redirect('profile', request.user.slug)

@@ -42,7 +42,7 @@ class UserAuthenticationForm(AuthenticationForm):
         return self.cleaned_data
 
 
-class AddPost(forms.ModelForm):
+class BasePoemForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(queryset=Tags.objects.all(
     ), widget=forms.CheckboxSelectMultiple, required=False)
 
@@ -50,6 +50,17 @@ class AddPost(forms.ModelForm):
         model = UserPoem
         fields = ['title', 'content', 'tags']
 
+
+class AddPoemForm(BasePoemForm):
+    pass
+
+
+class EditPoemForm(BasePoemForm):
+    pass
+
+
+class DeletePoemForm(BasePoemForm):
+    pass
 
 class UpdateUserForm(forms.ModelForm):
     username = forms.CharField(required=True)
