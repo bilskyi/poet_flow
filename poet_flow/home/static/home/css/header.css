@@ -130,7 +130,7 @@ header a {
 	max-width: 80%;
   }
   
-  #search-input {
+  .search-input {
 	margin-left: 10px;
 	color: #f5f5ff;
 	padding: 8px;
@@ -141,16 +141,16 @@ header a {
 	flex: 1;
   }
   
-  #search-input::placeholder {
+  .search-input::placeholder {
 	color: #999;
   }
   
-  #search-input:focus {
+  .search-input:focus {
 	outline: none;
 	border-color: #e8e8e8;
   }
   
-  #search-button {
+  .search-button {
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
@@ -158,11 +158,11 @@ header a {
 	margin-right: 12px;
   }
   
-  #search-button i {
+  .search-button i {
 	color: #999;
   }
   
-  #search-button:hover i {
+  .search-button:hover i {
 	color: #dedede;
   }
 

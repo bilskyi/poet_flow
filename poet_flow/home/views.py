@@ -9,8 +9,7 @@ from users.models import User
 from .models import ClassicPoem, UserPoem
 
 def welcome(request):
-    bar = SearchForm()
-    return render(request, 'home/welcome.html', {'bar': bar})
+    return render(request, 'home/welcome.html')
 
 
 def home(request):
@@ -26,6 +25,10 @@ def view_detail(request, poet_slug, poem_slug):
     return render(request, 'home/view_detail.html', {'poem': poem})
 
 
-def search(request):
-    form = SearchForm()
-    return form
+def search_view(request):
+    query = request.GET.get('query')
+    if query:
+        results = UserPoem.objects.filter(title=query)
+    else:
+        results = []
+    return render(request, 'home/search.html', {'results': results})

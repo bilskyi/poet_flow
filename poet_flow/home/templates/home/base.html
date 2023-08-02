@@ -21,14 +21,16 @@
         <a href="{% url 'welcome' %}"
           ><img src="{% static 'home/img/logo-white.png' %}" alt="Logo"></a>
       </li>
+      <form action="{% url 'search' %}" method="GET">
       <div class="search-bar">
         <div class="search-container">
-          <input type="text" id="search-input" placeholder="Search">
-          <button id="search-button" type="button">
+          <input type="text" name="query" required="" id="id_query" placeholder="Search" class="search-input">
+          <button class="search-button" type="submit">
             <i class="fas fa-search"></i>
           </button>
         </div>
       </div>
+    </form>
       <ul class="main-nav">
         <li><a href="{% url 'home' %}">Home</a></li>
         <li><a href="{% url 'explore' %}">Poets & Poems</a></li>
