@@ -28,7 +28,7 @@ def view_detail(request, poet_slug, poem_slug):
 def search_view(request):
     query = request.GET.get('query')
     if query:
-        results = UserPoem.objects.filter(title=query)
+        results = list(UserPoem.objects.filter(title=query)) + list(ClassicPoem.objects.filter(title=query))
     else:
         results = []
     return render(request, 'home/search.html', {'results': results})

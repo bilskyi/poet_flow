@@ -1,17 +1,24 @@
-<!-- search.html -->
-
-<form action="{% url 'search' %}" method="GET">
-    <input type="text" name="query" placeholder="Enter your search term..." value="{{ request.GET.query }}">
-    <button type="submit">Search</button>
-</form>
-
-{% if results %}
-    <h2>Search Results:</h2>
-    <ul>
-        {% for result in results %}
-            <li>{{ result }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No results found.</p>
-{% endif %}
+{% extends 'home/base.html' %}
+{% load static %}
+{% block head %}
+<title>Poetry Site</title>
+<link rel="stylesheet" href="{% static 'home/css/main.css' %}" />
+{% endblock head %}
+{% block content %}
+{% for poem in results %}
+<div class="poem">
+  <h2>
+    <a href="{% url 'view_detail' poem.author.slug poem.slug %}"
+      >{{poem.title}}</a
+    >
+  </h2>
+  <pre><a href="{% url 'view_detail'  poem.author.slug poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
+  <p>
+    <a href="{% url 'poet-detail' poem.author.slug %}">{{ poem.author }}</a>
+  </p>
+  {% for tag in poem.tags.all %}
+  <p class="tag">{{tag}}</p>
+  {% endfor %}
+</div>
+{% endfor %}
+{% endblock content %}
