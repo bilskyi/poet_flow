@@ -9,6 +9,7 @@
     <h2>Add Poem Form</h2>
     <form method="post" action="{% url 'add_post' %}">
       {% csrf_token %}
+      <div class="content">
       <div class="form-group">
         <label for="title">Poem's Title:</label>
         {{form.title}}
@@ -29,6 +30,7 @@
       </div>
       
       <button class="btn" type="submit">Submit</button>
+    </div>
     </form>
   </div>
   {% include 'home/background_animation.html' %}

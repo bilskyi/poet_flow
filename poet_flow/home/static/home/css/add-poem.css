@@ -32,7 +32,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-label {
+.content label {
   display: block;
   font-weight: bold;
   color: #555;
@@ -40,8 +40,8 @@ label {
   font-size: 16px;
 }
 
-input[type="text"],
-textarea {
+.content input[type="text"],
+.content textarea {
   width: 100%;
   max-width: 100%;
   padding: 12px;
@@ -54,14 +54,14 @@ textarea {
   transition: border-color 0.3s, background-color 0.3s;
 }
 
-input[type="text"]:focus,
-textarea:focus {
+.content input[type="text"]:focus,
+.content textarea:focus {
   outline: none;
   border-color: #777;
   background-color: #fff;
 }
 
-textarea {
+.content textarea {
   height: 150px;
 }
 
