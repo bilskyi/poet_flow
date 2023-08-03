@@ -2,17 +2,16 @@
 {% load static %}
 {% block head %}
 <title>Poetry Site</title>
-<link rel="stylesheet" href="{% static 'home/css/main.css' %}" />
+<link rel="stylesheet" href="{% static 'home/css/main.css' %}"/>
 {% endblock head %}
 {% block content %}
+{% if results %}
 {% for poem in results %}
 <div class="poem">
   <h2>
-    <a href="{% url 'view_detail' poem.author.slug poem.slug %}"
-      >{{poem.title}}</a
-    >
+    <a href="{% url 'view_detail' poem.author.slug poem.slug %}">{{poem.title}}</a>
   </h2>
-  <pre><a href="{% url 'view_detail'  poem.author.slug poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
+  <pre><a href="{% url 'view_detail' poem.author.slug poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
   <p>
     <a href="{% url 'poet-detail' poem.author.slug %}">{{ poem.author }}</a>
   </p>
@@ -21,4 +20,9 @@
   {% endfor %}
 </div>
 {% endfor %}
+{% else %}
+<div class="empty">
+    <img src="{% static 'home/img/empty.png' %}" alt="empty profile" class="empty">
+    <p>It seems here's no such poem...</p>
+{% endif %}
 {% endblock content %}

@@ -68,6 +68,18 @@ main {
   padding: 5px;
 }
 
+.empty {
+  padding-top: 4%;
+  margin: auto;
+  display: block;
+}
+
+.empty p {
+  font-weight: 600;
+  font-size: 22px;
+  color: #222;
+}
+
 @media screen and (max-width: 1200px) {
   .poem pre a {
     font-size: 14px;

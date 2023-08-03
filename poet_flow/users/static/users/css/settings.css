@@ -93,8 +93,8 @@
     color: #2f2f2f;
   }
 
-input[type="text"],
-textarea {
+.data input[type="text"],
+.data textarea {
   width: 100%;
   max-width: 100%;
   padding: 12px;
@@ -107,8 +107,8 @@ textarea {
   transition: border-color 0.3s, background-color 0.3s;
 }
 
-input[type="text"]:focus,
-textarea:focus {
+.data input[type="text"]:focus,
+.data textarea:focus {
   outline: none;
   border-color: #777;
   background-color: #fff;

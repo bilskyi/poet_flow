@@ -4,7 +4,7 @@
   <title>Edit Poem | PoetFlow</title>
   <link rel="stylesheet" href="{% static 'home/css/detail-poem.css' %}">
   <link rel="stylesheet" href="{% static 'explore/css/navigation-top.css' %}">
-  <link rel="stylesheet" href="{% static 'home/css/add-poem.css' %}">
+  <link rel="stylesheet" href="{% static 'home/css/base-poem.css' %}">
 {% endblock head %}
 {% block content %}
   <div class="navigation">
@@ -13,6 +13,7 @@
   <div class="poem-container">
     <form method="post">
         {% csrf_token %}   
+        <div class="content">
         <div class="delete-button-container">        
         <a href="{% url 'delete_poem' request.user.slug poem.slug %}" class="delete-button">Delete</a>
         </div>
@@ -29,6 +30,7 @@
         <div class="form-group">
             <button class="btn" type="submit">Submit</button>
         </div>
+      </div>
 </form>
   </div>
   {% include 'home/background_animation.html' %}
