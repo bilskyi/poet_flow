@@ -77,6 +77,18 @@ def settings(request):
 
 
 @login_required
+def privacy(request):
+    if request.method == 'POST':
+        form = PrivacyUserForm(request.POST, instance=request.user)
+        if form.is_valid() and form.changed_data:
+            form.save()
+    else:
+        form = PrivacyUserForm(instance=request.user)
+    return render(request, 'users/privacy.html', {'form': form})
+
+    
+
+@login_required
 def edit_poem(request, user_slug, poem_slug):
     poem = get_object_or_404(UserPoem, slug=poem_slug)
     if not request.user.slug == poem.author.slug:
