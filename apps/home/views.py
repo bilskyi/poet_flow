@@ -5,7 +5,7 @@ from .forms import *
 from django.db.models import Q
 
 from django.contrib.auth.forms import AuthenticationForm
-from users.models import User
+from apps.users.models import User
 
 from .models import ClassicPoem, UserPoem
 

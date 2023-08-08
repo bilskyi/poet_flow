@@ -3,7 +3,7 @@ from .models import User
 from django.contrib.auth import login, authenticate, logout
 from .forms import *
 from django.contrib.auth.decorators import login_required
-from home.models import Poet, UserPoem
+from apps.home.models import Poet, UserPoem
 from django.http.response import HttpResponseForbidden
 
 

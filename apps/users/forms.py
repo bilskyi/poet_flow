@@ -2,8 +2,8 @@ from django import forms
 from .models import User
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
-from home.models import ClassicPoem, Tags, UserPoem
-from users.models import User
+from apps.home.models import ClassicPoem, Tags, UserPoem
+from apps.users.models import User
 from django.contrib.auth import authenticate
 
 

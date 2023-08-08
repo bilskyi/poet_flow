@@ -2,16 +2,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from users import views as users
+from apps.users import views as users
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),
+    path('', include('apps.home.urls')),
     path('register/', users.register_user, name='register'),
     path('login/', users.login_user, name='login'),
     path('logout/', users.logout_user, name='logout'),
-    path('explore/', include('explore.urls')),
-    path('user/', include('users.urls'))
+    path('explore/', include('apps.explore.urls')),
+    path('user/', include('apps.users.urls'))
 ]
 
 if settings.DEBUG:

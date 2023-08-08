@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from home.models import Poet
-from users.models import User
+from apps.home.models import Poet
+from apps.users.models import User
 
 
 def classic_poets(request):
