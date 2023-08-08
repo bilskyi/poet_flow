@@ -1,4 +1,8 @@
 /* CSS styles for the poem template */
+html,
+body {
+  scroll-behavior: smooth;
+}
 
 .navigation a {
   background-color: #cecece;
@@ -68,4 +72,24 @@ svg {
 /* Add a border to the poem container */
 .poem-container {
   border: 1px solid #ccc; /* Change the color to your preference */
+}
+
+#backToTopBtn {
+  position: fixed;
+  text-decoration: none;
+  padding: 15px;
+  right: 2%;
+  bottom: 4.5%;
+  font-family: sans-serif;
+  color: #fff;
+  background: #000;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.12s ease-in-out;
+}
+
+#backToTopBtn.show {
+  opacity: 1;
 }
