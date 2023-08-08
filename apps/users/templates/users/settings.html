@@ -50,8 +50,12 @@
     <div class="sidebar">
       <h2>Settings</h2>
       <ul>
-        <li><a href="{% url 'settings' %}">Profile</a></li>
+      <div class="{% if selected == 'profile' %}selected{% endif %}">
+          <li><a href="{% url 'settings' %}">Profile</a></li>
+      </div>
+      <div class="{% if selected == 'privacy' %}selected{% endif %}">
         <li><a href="{% url 'privacy' %}">Privacy</a></li>
+      </div>
       </ul>
     </div>
   </div>
