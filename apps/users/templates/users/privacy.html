@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block head %}
+  <title>Settings | PoetFlow</title>
+  <link rel="stylesheet" href="{% static 'users/css/settings.css' %}">
+  <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+{% endblock head %}
+{% block content %}
+  <div class="container">
+    <div class="content">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="top">
+          <h1>Privacy</h1>
+        </div>
+        <div class="data">
+            <div class="form-group">
+                <h3>Show Email:</h3>
+                <label class="switch">
+                    <input type="checkbox" name="show_email" id="id_show_email" {% if request.user.show_email %}checked=""{% endif %}>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="form-group">
+                <h3>Show Phone Number:</h3>
+                <label class="switch">
+                    <input type="checkbox" name="show_phone_number" id="id_show_phone_number" {% if request.user.show_phone_number %}checked=""{% endif %}>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        <div class="form-group">
+            <button type="submit">Save Changes</button>
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class="sidebar">
+      <h2>Settings</h2>
+      <ul>
+        <li><a href="{% url 'settings' %}">Profile</a></li>
+        <li><a href="{% url 'privacy' %}">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+<script src="{% static 'users/js/avatar_preview.js' %}"></script>
+{% endblock content %}

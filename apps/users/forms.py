@@ -75,3 +75,9 @@ class UpdateUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'phone', 'description', 'avatar']
+
+
+class PrivacyUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['show_email', 'show_phone_number']
