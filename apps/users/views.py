@@ -73,7 +73,7 @@ def settings(request):
             form.save()
     else:
         form = UpdateUserForm(instance=request.user)
-    return render(request, 'users/settings.html', {'form': form})
+    return render(request, 'users/settings.html', {'form': form, 'selected': 'profile'})
 
 
 @login_required
@@ -84,7 +84,7 @@ def privacy(request):
             form.save()
     else:
         form = PrivacyUserForm(instance=request.user)
-    return render(request, 'users/privacy.html', {'form': form})
+    return render(request, 'users/privacy.html', {'form': form, 'selected': 'privacy'})
 
     
 
