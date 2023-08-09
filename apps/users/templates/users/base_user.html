@@ -15,7 +15,9 @@
         {% if poet.show_email %}
         Email: <span class="birth-date">{{ poet.email }}</span>
         {% endif %}
+        {% if poet.show_email and poet.show_phone_number %}
         |
+        {% endif %}
         {% if poet.phone and poet.show_phone_number %}Phone: <span class="death-date">{{ poet.phone }}</span>{% endif %}
     </p>
     <hr class="breakline">

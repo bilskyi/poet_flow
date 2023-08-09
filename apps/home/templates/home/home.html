@@ -14,7 +14,7 @@
   </h2>
   <pre><a href="{% url 'view_detail'  poem.author.slug poem.slug %}">{{poem.content |truncatewords_html:40}}</a></pre>
   <p>
-    <a href="{% url 'poet-detail' poem.author.slug %}">{{ poem.author }}</a>
+    <a href="{% url 'poet_detail' poem.author.slug %}">{{ poem.author }}</a>
   </p>
   {% for tag in poem.tags.all %}
   <p class="tag">{{tag}}</p>

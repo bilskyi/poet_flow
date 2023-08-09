@@ -11,7 +11,7 @@
     <i class="arrow right"></i>
     <a href="{% url 'explore' %}">Poets</a> 
     <i class="arrow right"></i>
-      <a href="{% url 'poet-detail' poem.author.slug %}">{{poem.author.name}}{{poem.author.username}}</a>
+      <a href="{% url 'poet_detail' poem.author.slug %}">{{poem.author.name}}{{poem.author.username}}</a>
     <i class="arrow right"></i>
     <span class="current-page">{{poem.title}}</span>
 </div>

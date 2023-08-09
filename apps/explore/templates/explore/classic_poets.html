@@ -5,19 +5,19 @@
 <div class="responsive-cell-block card-container">
   <div class="card">
     <div class="poet-image-wrapper">
-      <a href="{% url 'poet-detail' poet.slug %}">
+      <a href="{% url 'poet_detail' poet.slug %}">
         <img class="poet-image" src="{{ poet.photo.url }}">
       </a>
     </div>
     <p class="text-blk name">
-      <a href="{% url 'poet-detail' poet.slug %}">{{poet.name}}</a>
+      <a href="{% url 'poet_detail' poet.slug %}">{{poet.name}}</a>
     </p>
     <p class="text-blk date">
-      <a href="{% url 'poet-detail' poet.slug %}">{{poet.birth_date | date:"d.m.Y" }} - {{poet.death_date | date:"d.m.Y" }}
+      <a href="{% url 'poet_detail' poet.slug %}">{{poet.birth_date | date:"d.m.Y" }} - {{poet.death_date | date:"d.m.Y" }}
       </a>
     </p>
     <p class="text-blk biography">
-      <a href="{% url 'poet-detail' poet.slug %}">{{poet.biography | truncatewords:20}}</a>
+      <a href="{% url 'poet_detail' poet.slug %}">{{poet.biography | truncatewords:20}}</a>
     </p>
   </div>
 </div>
