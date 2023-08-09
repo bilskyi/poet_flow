@@ -26,7 +26,11 @@
   }
   
   h1 {
-    margin-bottom: 20px;
+    margin: 15px 0 10px 0;
+  }
+
+  .back-to-profile {
+    color: #000;
   }
 
   .form-group {

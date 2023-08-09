@@ -8,6 +8,8 @@
 {% block content %}
   <div class="container">
     <div class="content">
+      <a href="{% url 'profile' request.user.slug %}" class="back-to-profile">Back to Profile</a>
+
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="top">
