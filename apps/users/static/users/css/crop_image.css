@@ -16,8 +16,7 @@
   background-color: #fefefe;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Adjust the width as needed */
-  max-width: 400px;
+  max-width: 90vw; /* Adjust the max width as needed */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,7 +34,38 @@
   font-weight: bold;
 }
 
+.crop button {
+  align-items: center;
+  background-color: transparent;
+  color: #151515;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 1rem;
+}
+
+.crop button:before {
+  background-color: #090909;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+.crop button:hover:before {
+  background-color: #000000;
+  width: 3rem;
+}
+
 #avatarImage {
   max-width: 100%;
-  max-height: 100%; /* Adjust the max height as needed */
+  max-height: 12vw;
 }
