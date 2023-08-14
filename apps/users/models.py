@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from apps.users.managers import UserManager
 from django.utils.text import slugify
+from .utils import crop_avatar
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -28,6 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.username)
+        crop_avatar(self)
         super().save(*args, **kwargs)
 
     class Meta:

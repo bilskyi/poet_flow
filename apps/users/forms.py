@@ -62,6 +62,7 @@ class EditPoemForm(BasePoemForm):
 class DeletePoemForm(BasePoemForm):
     pass
 
+
 class UpdateUserForm(forms.ModelForm):
     username = forms.CharField(required=True)
     email = forms.EmailField(required=True)
