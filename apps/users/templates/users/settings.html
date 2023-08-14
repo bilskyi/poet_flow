@@ -4,6 +4,11 @@
   <title>Settings | PoetFlow</title>
   <link rel="stylesheet" href="{% static 'users/css/settings.css' %}">
   <link rel="stylesheet" href="{% static 'users/css/profile.css' %}">
+  <link rel="stylesheet" href="{% static 'users/css/crop_image.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+  <script src="{% static 'users/js/avatar_preview.js' %}"></script>
+  <script src="{% static 'users/js/avatar_crop.js' %}"></script>
 {% endblock head %}
 {% block content %}
   <div class="container">
@@ -11,20 +16,25 @@
       <a href="{% url 'profile' request.user.slug %}" class="back-to-profile">Back to Profile</a>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        <input type="hidden" name="crop_x" id="cropX">
+        <input type="hidden" name="crop_y" id="cropY">
+        <input type="hidden" name="crop_width" id="cropWidth">
+        <input type="hidden" name="crop_height" id="cropHeight">
         <div class="top">
           <h1>Edit Profile</h1>
-            <div class="personal-image">
-              <label class="label">
-                <input type="file" name="avatar" accept="image/*" id="id_avatar" onchange="previewAvatar(event)" />
-                <figure class="personal-figure">
-                  <img src="{{user.avatar.url}}" class="personal-avatar" alt="avatar" id="avatarPreview">
-                  <figcaption class="personal-figcaption">
-                    <img src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
-                  </figcaption>
-                </figure>
-              </label>
+          <div class="personal-image">
+            <label class="label">
+              <input type="file" name="avatar" accept="image/*" id="id_avatar">
+              <figure class="personal-figure">
+                <img src="{{user.avatar.url}}" class="personal-avatar" alt="avatar" id="avatarPreview">
+                <figcaption class="personal-figcaption">
+                  <img src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png">
+                </figcaption>
+              </figure>
+            </label>
           </div>
         </div>
+        {% include 'users/crop_image.html' %}
         <div class="data">
         <div class="form-group">
             <label for="name">Name</label>
@@ -60,5 +70,9 @@
       </ul>
     </div>
   </div>
-<script src="{% static 'users/js/avatar_preview.js' %}"></script>
+  <script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    initCropper();
+  });
+  </script>
 {% endblock content %}
