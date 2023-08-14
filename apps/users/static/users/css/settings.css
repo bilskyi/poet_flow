@@ -1,105 +1,110 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    margin-top: 15vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .content {
-    flex: 1;
-    max-width: 600px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  h1 {
-    margin: 15px 0 10px 0;
-  }
+  box-sizing: border-box;
+}
 
-  .back-to-profile {
-    color: #000;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-  .form-group {
-    margin-bottom: 20px;
-  }
+.container {
+  margin-top: 15vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+}
 
-  .form-group h3 {
-    margin: 20px 0;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .form-group button {
-    padding: 10px 20px;
-    background-color: #4c4c4c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .sidebar {
-    flex: 1;
-    max-width: 250px;
-    margin-left: 20px;
-  }
-  
-  .sidebar h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #fff;
-    background-color: #5d5d5d;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar li {
-    margin-bottom: 10px;
-  }
-  
-  .sidebar a {
-    color: #000;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .sidebar a:hover {
-    color: #2f2f2f;
-  }
+.content {
+  flex: 1;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Add this to your existing styles */
+#cropperContainer {
+  display: none;
+}
+
+h1 {
+  margin: 15px 0 10px 0;
+}
+
+.back-to-profile {
+  color: #000;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group h3 {
+  margin: 20px 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group button {
+  padding: 10px 20px;
+  background-color: #4c4c4c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar {
+  flex: 1;
+  max-width: 250px;
+  margin-left: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+  background-color: #5d5d5d;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #2f2f2f;
+}
 
 .data input[type="text"],
 .data textarea {
@@ -145,8 +150,8 @@
   right: 0;
   bottom: 0;
   background-color: #9d9d9d;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -157,8 +162,8 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {

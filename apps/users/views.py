@@ -1,9 +1,12 @@
+import base64
+from django.core.files.base import ContentFile
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User
 from django.contrib.auth import login, authenticate, logout
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from apps.home.models import Poet, UserPoem
+
 from django.http.response import HttpResponseForbidden
 
 
@@ -67,10 +70,18 @@ def profile(request, slug):
 @login_required
 def settings(request):
     if request.method == 'POST':
-        form = UpdateUserForm(request.POST, request.FILES,
-                              instance=request.user)
+        form = UpdateUserForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
-            form.save()
+            cropped_image_data = request.POST.get('cropped_image_data')
+            
+            if cropped_image_data:
+                format, imgstr = cropped_image_data.split(';base64,')
+                ext = format.split('/')[-1]
+                image_data = ContentFile(base64.b64decode(imgstr), name=f"avatar.{ext}")
+                request.user.avatar.save(f"avatar.{ext}", image_data)
+            
+            form.save()  # Save the user instance with the cropped image
+           # return redirect('profile', slug=request.user.slug)
     else:
         form = UpdateUserForm(instance=request.user)
     return render(request, 'users/settings.html', {'form': form, 'selected': 'profile'})
