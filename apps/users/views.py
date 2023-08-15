@@ -71,16 +71,17 @@ def profile(request, slug):
 def settings(request):
     if request.method == 'POST':
         form = UpdateUserForm(request.POST, request.FILES, instance=request.user)
+        cropped_image_data = request.POST.get('avatar')
+        
+        if cropped_image_data:
+            format, imgstr = cropped_image_data.split(';base64,')
+            ext = format.split('/')[-1]
+            image_data = ContentFile(base64.b64decode(imgstr), name=f"avatar.{ext}")
+            request.user.avatar.delete()
+            request.user.avatar.save(f"avatar.{ext}", image_data)
+
         if form.is_valid():
-            cropped_image_data = request.POST.get('cropped_image_data')
-            
-            if cropped_image_data:
-                format, imgstr = cropped_image_data.split(';base64,')
-                ext = format.split('/')[-1]
-                image_data = ContentFile(base64.b64decode(imgstr), name=f"avatar.{ext}")
-                request.user.avatar.save(f"avatar.{ext}", image_data)
-            
-            form.save()  # Save the user instance with the cropped image
+            form.save()
            # return redirect('profile', slug=request.user.slug)
     else:
         form = UpdateUserForm(instance=request.user)
